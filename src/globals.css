@@ -4,44 +4,30 @@
 
 @layer base {
   :root {
-    --background: 0 0% 2%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 4%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 2%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 9%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 0 0% 12%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 12%;
-    --input: 0 0% 12%;
-    --ring: 263.4 70% 50.4%;
-    --radius: 1.5rem;
+    --border: 0 0% 10%;
+    --radius: 0rem;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
-    @apply bg-[#000000] text-foreground antialiased selection:bg-purple-500/30;
-    /* Suppression totale des gradients bleus */
-    background-image: none;
+    @apply bg-black text-white antialiased;
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+    background-attachment: fixed;
   }
 }
 
-.glass-card {
-  @apply bg-white/[0.03] border border-white/[0.08] backdrop-blur-2xl;
+.premium-blur {
+  @apply backdrop-blur-3xl bg-black/80;
 }
 
-.black-card {
-  @apply bg-[#0A0A0A] border border-[#1A1A1A];
+.border-subtle {
+  @apply border border-white/10;
+}
+
+.text-luxury {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
