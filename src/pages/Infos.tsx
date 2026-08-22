@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { MapPin, Truck, Package, CheckCircle2, MessageSquare, Instagram, Send } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const InfoSection = ({ title, emoji, children }: { title: string, emoji: string, children: React.ReactNode }) => (
   <div className="space-y-4 mb-8">
