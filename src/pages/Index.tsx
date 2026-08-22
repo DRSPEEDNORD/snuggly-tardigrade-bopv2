@@ -6,31 +6,26 @@ import ActionCards from '@/components/ActionCards';
 
 const Index = () => {
   return (
-    <div className="min-h-screen max-w-md mx-auto pb-16">
+    <div className="min-h-screen bg-black flex flex-col items-center">
       <Header />
       
-      <main className="mt-6 space-y-8">
+      <main className="w-full space-y-8">
         <ActionCards />
 
-        <div className="px-6">
-          <div className="glass-panel p-6 rounded-[2rem] relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
-              <h4 className="text-[10px] tracking-[0.3em] text-white/80 uppercase font-black">Information</h4>
-            </div>
-            <p className="text-sm text-gray-400 leading-relaxed font-medium">
-              Livraisons sécurisées 7j/7. Consultez nos menus mis à jour en temps réel sur notre canal Telegram.
+        <div className="px-6 w-full max-w-sm mx-auto">
+          <div className="bg-[#0A0A0A] border border-[#1A1A1A] p-5 rounded-2xl">
+            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Annonce</h4>
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Livraisons disponibles tous les jours. Pour toute question, contactez le support via Telegram.
             </p>
           </div>
         </div>
       </main>
 
-      <footer className="mt-16 text-center">
-        <div className="inline-block px-4 py-1 rounded-full border border-white/5 bg-white/[0.02]">
-          <p className="text-[9px] tracking-[0.2em] text-gray-600 font-bold uppercase">
-            Dr Speed Nord — Est. 2024
-          </p>
-        </div>
+      <footer className="mt-auto py-10 text-center">
+        <p className="text-[10px] text-gray-700 font-bold uppercase tracking-widest">
+          © 2024 Dr Speed Nord
+        </p>
       </footer>
     </div>
   );

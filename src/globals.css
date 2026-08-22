@@ -6,35 +6,18 @@
   :root {
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
-    --border: 0 0% 15%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
+    --border: 0 0% 10%;
   }
 }
 
 @layer base {
   body {
-    @apply bg-[#000000] text-white antialiased overflow-x-hidden;
-    background-image: 
-      radial-gradient(circle at 50% 0%, #111 0%, transparent 50%),
-      radial-gradient(circle at 0% 100%, #080808 0%, transparent 50%);
+    @apply bg-black text-white antialiased;
   }
 }
 
-.glass-panel {
-  @apply bg-[#0A0A0A] border border-white/10 backdrop-blur-md shadow-2xl;
-  background-image: linear-gradient(to bottom right, rgba(255,255,255,0.05), transparent);
-}
-
-.neon-text {
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
-
-.btn-premium {
-  @apply relative overflow-hidden transition-all duration-500 active:scale-95;
-  background: linear-gradient(135deg, #111 0%, #000 100%);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.btn-premium:hover {
-  border-color: rgba(255,255,255,0.3);
-  box-shadow: 0 0 30px rgba(255,255,255,0.05);
+.card-action {
+  @apply bg-[#0A0A0A] border border-[#1A1A1A] rounded-2xl transition-all duration-300 hover:bg-[#111] hover:border-[#333] active:scale-[0.98];
 }
