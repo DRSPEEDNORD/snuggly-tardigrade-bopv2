@@ -4,49 +4,50 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="w-full pt-12 pb-8 px-6 flex flex-col items-center text-center">
-      {/* Logo Container avec effet de fusion */}
-      <div className="relative w-full max-w-[340px] aspect-video mb-10 flex items-center justify-center group">
-        {/* Halo lumineux en arrière-plan */}
-        <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-[80px] opacity-50 group-hover:opacity-70 transition-opacity duration-700"></div>
+    <header className="w-full pt-16 pb-8 px-6 flex flex-col items-center text-center">
+      {/* Logo Container avec Masquage Avancé */}
+      <div className="relative w-full max-w-[380px] aspect-[16/9] mb-6 flex items-center justify-center group">
         
-        <div className="relative w-full h-full overflow-hidden">
-          {/* L'image du logo */}
+        {/* Lueur diffuse très large derrière */}
+        <div className="absolute inset-0 bg-emerald-500/10 rounded-full blur-[100px] scale-150 opacity-30"></div>
+        
+        <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
+          {/* L'image avec un masque d'opacité radial pour des bords invisibles */}
           <img 
             src="/logo.jpg" 
             alt="Dr Speed Nord" 
-            className="w-full h-full object-cover opacity-90"
+            className="w-full h-full object-contain opacity-80 transition-all duration-1000 group-hover:opacity-100 group-hover:scale-105"
+            style={{
+              maskImage: 'radial-gradient(circle, black 30%, rgba(0, 0, 0, 0.5) 60%, transparent 95%)',
+              WebkitMaskImage: 'radial-gradient(circle, black 30%, rgba(0, 0, 0, 0.5) 60%, transparent 95%)'
+            }}
             onError={(e) => {
               e.currentTarget.style.display = 'none';
               const parent = e.currentTarget.parentElement;
               if (parent) {
-                parent.innerHTML = '<span class="text-5xl font-black text-emerald-400 italic tracking-tighter">DSN</span>';
+                parent.innerHTML = '<span class="text-6xl font-black text-emerald-400 italic tracking-tighter">DSN</span>';
               }
             }}
           />
           
-          {/* Masque de fusion radial (centre clair, bords noirs) */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#050c0a_100%)]"></div>
-          
-          {/* Dégradés linéaires sur les bords pour renforcer la fusion avec le fond du site */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050c0a] via-transparent to-[#050c0a] opacity-60"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050c0a] via-transparent to-[#050c0a] opacity-60"></div>
+          {/* Overlay de couleur pour harmoniser les tons de l'image avec le site */}
+          <div className="absolute inset-0 bg-[#050c0a]/20 pointer-events-none"></div>
         </div>
 
-        {/* Ligne décorative subtile en dessous */}
-        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
+        {/* Effet de reflet qui passe sur le logo au survol */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000 pointer-events-none bg-gradient-to-r from-transparent via-white to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] duration-[1500ms]"></div>
       </div>
 
-      <div className="space-y-1 relative">
+      <div className="space-y-2 relative z-10">
         <h1 className="text-4xl font-black italic tracking-tighter text-white cyber-glow-text uppercase">
           DR SPEED <span className="text-emerald-400">NORD</span>
         </h1>
-        <div className="flex items-center justify-center gap-3">
-          <div className="h-[1px] w-8 bg-emerald-500/30"></div>
-          <p className="text-[10px] font-bold tracking-[0.4em] text-emerald-500/60 uppercase">
-            PREMIUM QUALITY
+        <div className="flex items-center justify-center gap-4">
+          <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-emerald-500/40"></div>
+          <p className="text-[10px] font-bold tracking-[0.5em] text-emerald-500/70 uppercase">
+            PREMIUM SELECTION
           </p>
-          <div className="h-[1px] w-8 bg-emerald-500/30"></div>
+          <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-emerald-500/40"></div>
         </div>
       </div>
     </header>
