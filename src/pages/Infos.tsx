@@ -4,8 +4,6 @@ import React from 'react';
 import { 
   MapPin, 
   Truck, 
-  Package, 
-  ShieldCheck, 
   Send, 
   Clock, 
   CreditCard, 
@@ -89,20 +87,12 @@ const Infos = () => {
         </div>
       </InfoSection>
 
-      <InfoSection title="PAIEMENT & SÉCURITÉ 🛡️">
+      <InfoSection title="PAIEMENT 💳">
         <div className="druid-card flex items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center shrink-0">
             <CreditCard size={20} className="text-yellow-500" />
           </div>
           <p className="text-[13px] font-bold leading-snug">Cryptomonnaies & Virements acceptés</p>
-        </div>
-        <div className="druid-card flex items-start gap-4">
-          <div className="mt-0.5">
-            <ShieldCheck className="text-emerald-500" size={20} />
-          </div>
-          <p className="text-[13px] font-bold text-white/90 leading-snug">
-            Remboursement à 100% en cas de perte ou de saisie. Emballage premium 3x sous vide.
-          </p>
         </div>
       </InfoSection>
 
