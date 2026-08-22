@@ -6,27 +6,37 @@ import ActionCards from '@/components/ActionCards';
 
 const Index = () => {
   return (
-    <div className="min-h-screen pb-12">
+    <div className="min-h-screen max-w-md mx-auto pb-20 selection:bg-purple-500/30">
       <Header />
       
-      <div className="px-4 mt-8">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold flex items-center gap-2">
-            <span className="w-1 h-6 bg-purple-500 rounded-full"></span>
-            Accès Rapides
-          </h2>
+      <div className="mt-8 space-y-8">
+        <div className="px-6">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-gray-600">Navigation</span>
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          </div>
+          <ActionCards />
         </div>
-        <ActionCards />
+
+        <div className="px-6">
+          <div className="relative p-8 rounded-[2.5rem] bg-gradient-to-br from-purple-900/20 to-transparent border border-white/5 overflow-hidden group">
+            <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
+              <div className="w-24 h-24 bg-purple-500 rounded-full blur-[60px]"></div>
+            </div>
+            <h3 className="text-purple-400 text-xs font-black tracking-widest uppercase mb-3">Dernière Mise à Jour</h3>
+            <p className="text-gray-300 text-sm leading-relaxed font-medium">
+              Notre catalogue a été mis à jour. Consultez les nouveautés directement sur Telegram pour ne rien manquer.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div className="px-4 mt-10">
-        <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 rounded-3xl p-6 border border-white/5">
-          <h3 className="text-purple-400 font-bold mb-2 italic uppercase tracking-wider">Nouveautés</h3>
-          <p className="text-sm text-gray-400 leading-relaxed">
-            Découvrez les dernières mises à jour de Dr Speed Nord directement sur notre canal Telegram.
-          </p>
-        </div>
-      </div>
+      <footer className="mt-16 text-center">
+        <p className="text-[10px] font-bold tracking-[0.3em] text-gray-700 uppercase">
+          © 2024 Dr Speed Nord • Excellence & Rapidité
+        </p>
+      </footer>
     </div>
   );
 };

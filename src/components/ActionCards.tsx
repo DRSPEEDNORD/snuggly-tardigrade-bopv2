@@ -1,28 +1,49 @@
 "use client";
 
 import React from 'react';
-import { Send, Smartphone, Heart } from 'lucide-react';
+import { Send, LayoutGrid, ArrowUpRight } from 'lucide-react';
 
 const ActionCards = () => {
   return (
-    <div className="grid grid-cols-2 gap-4 px-4 mt-8">
-      <a href="https://t.me/votre_canal" target="_blank" rel="noopener noreferrer" className="group relative bg-[#161622] rounded-3xl p-6 border border-white/5 overflow-hidden transition-all hover:border-purple-500/50">
-        <div className="absolute top-3 right-3 bg-pink-500/20 p-1.5 rounded-full text-pink-500">
-          <Heart size={14} fill="currentColor" />
+    <div className="grid grid-cols-1 gap-4 px-6 mt-4">
+      <a 
+        href="https://t.me/votre_canal" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="group relative flex items-center justify-between p-6 rounded-[2rem] bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] hover:border-purple-500/30 transition-all duration-500"
+      >
+        <div className="flex items-center gap-5">
+          <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform duration-500">
+            <Send size={28} />
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-white tracking-tight">Canal Telegram</h3>
+            <p className="text-sm text-gray-500">Rejoindre la communauté</p>
+          </div>
         </div>
-        <div className="bg-blue-500/20 w-12 h-12 rounded-2xl flex items-center justify-center text-blue-400 mb-4">
-          <Send size={24} />
+        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-500 group-hover:text-white group-hover:border-white/20 transition-all">
+          <ArrowUpRight size={20} />
         </div>
-        <h3 className="font-bold text-lg">Telegram</h3>
-        <p className="text-xs text-gray-500 mt-1">Rejoindre le canal</p>
       </a>
 
-      <a href="https://votre-autre-app.com" target="_blank" rel="noopener noreferrer" className="group relative bg-[#161622] rounded-3xl p-6 border border-white/5 overflow-hidden transition-all hover:border-purple-500/50">
-        <div className="bg-purple-500/20 w-12 h-12 rounded-2xl flex items-center justify-center text-purple-400 mb-4">
-          <Smartphone size={24} />
+      <a 
+        href="https://votre-autre-app.com" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="group relative flex items-center justify-between p-6 rounded-[2rem] bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] hover:border-purple-500/30 transition-all duration-500"
+      >
+        <div className="flex items-center gap-5">
+          <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform duration-500">
+            <LayoutGrid size={28} />
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-white tracking-tight">Application Web</h3>
+            <p className="text-sm text-gray-500">Accéder à nos services</p>
+          </div>
         </div>
-        <h3 className="font-bold text-lg">Mon App</h3>
-        <p className="text-xs text-gray-500 mt-1">Accéder au service</p>
+        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-500 group-hover:text-white group-hover:border-white/20 transition-all">
+          <ArrowUpRight size={20} />
+        </div>
       </a>
     </div>
   );

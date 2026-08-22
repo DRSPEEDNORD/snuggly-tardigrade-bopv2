@@ -1,42 +1,47 @@
 "use client";
 
 import React from 'react';
-import { ChevronDown, MoreHorizontal, X } from 'lucide-react';
+import { MoreHorizontal, X, ShieldCheck } from 'lucide-react';
 
 const Header = () => {
   return (
-    <div className="w-full pt-6 pb-4 px-4 flex flex-col items-center gap-4">
+    <div className="w-full pt-8 pb-6 px-6 flex flex-col items-center gap-6">
       <div className="w-full flex justify-between items-center">
-        <button className="bg-white/10 backdrop-blur-md p-2 rounded-full px-4 flex items-center gap-2 text-sm font-medium hover:bg-white/20 transition-colors">
-          <X size={18} /> Fermer
+        <button className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+          <X size={20} className="text-gray-400" />
         </button>
-        <div className="flex gap-2">
-          <button className="bg-white/10 backdrop-blur-md p-2 rounded-xl hover:bg-white/20 transition-colors">
-            <ChevronDown size={20} />
-          </button>
-          <button className="bg-white/10 backdrop-blur-md p-2 rounded-xl hover:bg-white/20 transition-colors">
-            <MoreHorizontal size={20} />
-          </button>
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+          <ShieldCheck size={14} className="text-purple-500" />
+          <span className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Verified Portal</span>
         </div>
+        <button className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+          <MoreHorizontal size={20} className="text-gray-400" />
+        </button>
       </div>
 
-      <div className="relative">
-        {/* Cercle néon extérieur avec fond noir pour fusionner avec le logo */}
-        <div className="w-36 h-36 rounded-full border-2 border-purple-500/50 flex items-center justify-center shadow-[0_0_40px_rgba(168,85,247,0.4)] bg-black overflow-hidden">
-          <img 
-            src="/src/assets/logo.jpg" 
-            alt="Dr Speed Nord Logo" 
-            className="w-full h-full object-contain" 
-          />
+      <div className="relative group">
+        {/* Glow effect behind logo */}
+        <div className="absolute -inset-4 bg-purple-600/20 rounded-full blur-3xl group-hover:bg-purple-600/30 transition-all duration-700"></div>
+        
+        <div className="relative w-40 h-40 rounded-full p-1 bg-gradient-to-b from-white/20 to-transparent">
+          <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden border border-white/10 shadow-2xl">
+            <img 
+              src="/src/assets/logo.jpg" 
+              alt="Dr Speed Nord" 
+              className="w-full h-full object-contain scale-110" 
+            />
+          </div>
         </div>
-        {/* Indicateur de statut en ligne */}
-        <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-4 border-[#0B0B12] rounded-full shadow-lg z-10"></div>
+        
+        {/* Status indicator */}
+        <div className="absolute bottom-3 right-3 w-5 h-5 bg-green-500 rounded-full border-[4px] border-[#050508] shadow-lg"></div>
       </div>
 
-      <div className="text-center mt-2">
-        <h1 className="text-3xl font-black tracking-tighter uppercase italic bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
-          DR SPEED NORD
+      <div className="text-center space-y-1">
+        <h1 className="text-4xl font-black tracking-tighter uppercase italic italic text-white">
+          DR SPEED <span className="text-purple-500">NORD</span>
         </h1>
+        <p className="text-gray-500 text-xs font-medium tracking-[0.3em] uppercase">Premium Delivery Service</p>
       </div>
     </div>
   );
