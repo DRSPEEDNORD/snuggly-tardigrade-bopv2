@@ -1,16 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Récupération des variables d'environnement
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Utilisation des identifiants du projet nyotqhzildjgdbckwijy
+const SUPABASE_URL = "https://nyotqhzildjgdbckwijy.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55b3RxaHppbGRqZ2RiY2t3aWp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODczOTMwMDYsImV4cCI6MjEwMjk2OTAwNn0.RPtcrGYW-9MZQ7URcixGjpR6yTs-CHWtANyH3lr7nq0";
 
-// Initialisation sécurisée : si les clés manquent, on ne crée pas le client immédiatement
-// pour éviter l'erreur 'supabaseUrl is required'
-export const supabase = createClient(
-  supabaseUrl || 'https://placeholder-url.supabase.co',
-  supabaseAnonKey || 'placeholder-key'
-);
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error("Supabase : Les variables d'environnement VITE_SUPABASE_URL ou VITE_SUPABASE_ANON_KEY sont manquantes.");
-}
+export const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
