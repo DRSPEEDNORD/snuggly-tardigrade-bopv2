@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { ShoppingBag, Info } from 'lucide-react';
+import { Home, Info } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
@@ -10,7 +10,7 @@ const BottomNav = () => {
   const location = useLocation();
 
   const tabs = [
-    { id: 'shop', label: 'SHOP', icon: ShoppingBag, path: '/' },
+    { id: 'home', label: 'ACCUEIL', icon: Home, path: '/' },
     { id: 'infos', label: 'INFOS', icon: Info, path: '/infos' },
   ];
 
