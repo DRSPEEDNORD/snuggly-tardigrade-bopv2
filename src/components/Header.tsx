@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import logo from '@/assets/logo.jpg';
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
       <div className="relative w-48 h-48 mb-6">
         <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
         <img 
-          src="/src/assets/logo.jpg" 
+          src={logo} 
           alt="Dr Speed Nord Logo" 
           className="relative w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,163,255,0.5)]"
         />
