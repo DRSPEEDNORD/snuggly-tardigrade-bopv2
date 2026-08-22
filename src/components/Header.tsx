@@ -6,10 +6,10 @@ const Header = () => {
   return (
     <header className="w-full pt-12 pb-8 px-6 flex flex-col items-center text-center">
       {/* Logo Container */}
-      <div className="relative w-40 h-40 mb-6 flex items-center justify-center">
-        <div className="absolute inset-0 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="relative w-full max-w-[320px] aspect-video mb-8 flex items-center justify-center">
+        <div className="absolute inset-0 bg-cyan-500/10 rounded-[2rem] blur-3xl animate-pulse"></div>
         
-        <div className="relative w-full h-full rounded-3xl overflow-hidden border border-cyan-500/30 bg-black/40 flex items-center justify-center shadow-[0_0_30px_rgba(34,211,238,0.15)]">
+        <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-cyan-500/30 bg-black/40 flex items-center justify-center shadow-[0_0_40px_rgba(34,211,238,0.2)]">
           <img 
             src="/logo.jpg" 
             alt="Dr Speed Nord" 
