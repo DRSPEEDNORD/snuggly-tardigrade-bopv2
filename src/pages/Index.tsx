@@ -3,30 +3,25 @@
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import ActionCards from '@/components/ActionCards';
-import { supabase } from '@/lib/supabase';
+import { supabase } from '@/integrations/supabase/client';
 
 const Index = () => {
   const [connectionStatus, setConnectionStatus] = useState<'loading' | 'connected' | 'error'>('loading');
 
   useEffect(() => {
     const checkConnection = async () => {
-      // On vérifie simplement si l'URL est configurée
-      const url = import.meta.env.VITE_SUPABASE_URL;
-      if (!url || url.includes('placeholder')) {
-        setConnectionStatus('error');
-        return;
-      }
-
       try {
-        // Test rapide pour voir si Supabase répond
-        const { error } = await supabase.from('_test_connection').select('*').limit(1);
-        // Si on a une erreur de table inexistante (42P01), c'est que la connexion fonctionne quand même !
-        if (error && error.code !== '42P01' && error.code !== 'PGRST116') {
+        // We just check if we can reach the auth service or any public resource
+        const { data, error } = await supabase.auth.getSession();
+        
+        if (error) {
+          console.error("[Supabase] Connection error:", error);
           setConnectionStatus('error');
         } else {
           setConnectionStatus('connected');
         }
       } catch (err) {
+        console.error("[Supabase] Unexpected error:", err);
         setConnectionStatus('error');
       }
     };
@@ -42,8 +37,8 @@ const Index = () => {
         <ActionCards />
         
         <div className="mt-8 flex justify-center">
-          <div className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border transition-colors duration-500 ${
-            connectionStatus === 'connected' ? 'border-emerald-500/30 text-emerald-500/50' : 
+          <div className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border transition-all duration-500 ${
+            connectionStatus === 'connected' ? 'border-emerald-500/30 text-emerald-500/50 shadow-[0_0_10px_rgba(16,185,129,0.1)]' : 
             connectionStatus === 'error' ? 'border-red-500/30 text-red-500/50' : 
             'border-white/10 text-white/20 animate-pulse'
           }`}>
