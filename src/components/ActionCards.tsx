@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Send, ShoppingBag, ChevronRight } from 'lucide-react';
+import { Send, Download, ChevronRight } from 'lucide-react';
 
 const ActionCards = () => {
   return (
@@ -23,21 +23,19 @@ const ActionCards = () => {
         <ChevronRight size={24} className="text-cyan-500/50 group-hover:text-cyan-400" />
       </a>
 
-      {/* Boutique Button */}
+      {/* Install App Button */}
       <a 
-        href="https://votre-autre-app.com" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="cyber-border group flex items-center p-5 transition-all duration-300 hover:scale-[1.02] hover:border-cyan-400/60"
+        href="#" 
+        className="cyber-border group flex items-center p-5 transition-all duration-300 hover:scale-[1.02] hover:border-emerald-400/60"
       >
-        <div className="w-14 h-14 flex items-center justify-center text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]">
-          <ShoppingBag size={32} strokeWidth={1.5} />
+        <div className="w-14 h-14 flex items-center justify-center text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]">
+          <Download size={32} strokeWidth={1.5} />
         </div>
         <div className="ml-4 flex-1 text-left">
-          <h3 className="text-xl font-bold text-white tracking-wide uppercase">BOUTIQUE</h3>
-          <p className="text-xs text-gray-500 font-medium">Passer une commande</p>
+          <h3 className="text-xl font-bold text-white tracking-wide uppercase">INSTALLER</h3>
+          <p className="text-xs text-gray-400 font-medium">Ajouter l'application mobile</p>
         </div>
-        <ChevronRight size={24} className="text-cyan-500/50 group-hover:text-cyan-400" />
+        <ChevronRight size={24} className="text-emerald-500/50 group-hover:text-emerald-400" />
       </a>
     </div>
   );
