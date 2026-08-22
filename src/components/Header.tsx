@@ -21,19 +21,17 @@ const Header = () => {
       </div>
 
       <div className="relative">
-        {/* Cercle néon extérieur */}
-        <div className="w-36 h-36 rounded-full border-2 border-purple-500/50 flex items-center justify-center shadow-[0_0_30px_rgba(168,85,247,0.3)] bg-[#0B0B12]">
-          {/* Conteneur du logo qui préserve le ratio sans déformer */}
-          <div className="w-[90%] h-[90%] rounded-full overflow-hidden flex items-center justify-center bg-black">
-            <img 
-              src="/src/assets/logo.jpg" 
-              alt="Dr Speed Nord Logo" 
-              className="w-full h-full object-cover scale-110" 
-            />
-          </div>
+        {/* Cercle néon extérieur avec fond noir pour fusionner avec le logo */}
+        <div className="w-36 h-36 rounded-full border-2 border-purple-500/50 flex items-center justify-center shadow-[0_0_40px_rgba(168,85,247,0.4)] bg-black overflow-hidden">
+          {/* L'image est maintenant contenue entièrement sans être coupée ni déformée */}
+          <img 
+            src="/src/assets/logo.jpg" 
+            alt="Dr Speed Nord Logo" 
+            className="w-full h-full object-contain" 
+          />
         </div>
-        {/* Indicateur de statut en ligne repositionné */}
-        <div className="absolute bottom-3 right-3 w-6 h-6 bg-green-500 border-4 border-[#0B0B12] rounded-full shadow-lg z-10"></div>
+        {/* Indicateur de statut en ligne */}
+        <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-4 border-[#0B0B12] rounded-full shadow-lg z-10"></div>
       </div>
 
       <div className="text-center mt-2">
