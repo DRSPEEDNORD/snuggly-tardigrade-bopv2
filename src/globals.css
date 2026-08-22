@@ -18,14 +18,18 @@
   }
 }
 
+.cyber-border {
+  @apply bg-[#0d1512]/80 border border-cyan-500/20 rounded-2xl backdrop-blur-sm shadow-[0_0_15px_rgba(34,211,238,0.05)];
+}
+
+.cyber-glow-text {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
 .druid-card {
   @apply bg-[#0d1512] border border-white/5 rounded-[1.5rem] p-4 transition-all active:scale-[0.98];
 }
 
 .druid-tab-bar {
   @apply fixed bottom-6 left-6 right-6 h-20 bg-[#0d1512]/90 border border-white/10 backdrop-blur-xl rounded-[2rem] flex items-center justify-around px-2 z-50 shadow-[0_20px_50px_rgba(0,0,0,0.5)];
-}
-
-.icon-container {
-  @apply w-12 h-12 rounded-full flex items-center justify-center mb-2;
 }

@@ -6,21 +6,30 @@ import logo from '@/assets/logo.jpg';
 const Header = () => {
   return (
     <header className="w-full pt-12 pb-8 px-6 flex flex-col items-center text-center">
-      {/* Logo Circuit */}
-      <div className="relative w-48 h-48 mb-6">
-        <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <img 
-          src={logo} 
-          alt="Dr Speed Nord Logo" 
-          className="relative w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,163,255,0.5)]"
-        />
+      {/* Logo Container */}
+      <div className="relative w-40 h-40 mb-6 flex items-center justify-center">
+        <div className="absolute inset-0 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        
+        {/* Tentative d'affichage du logo avec un fallback visuel si l'image échoue */}
+        <div className="relative w-full h-full rounded-3xl overflow-hidden border border-cyan-500/30 bg-black/40 flex items-center justify-center shadow-[0_0_30px_rgba(34,211,238,0.15)]">
+          <img 
+            src={logo} 
+            alt="Dr Speed Nord" 
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // Si l'image ne charge pas, on affiche un texte stylisé
+              e.currentTarget.style.display = 'none';
+              e.currentTarget.parentElement!.innerHTML = '<span class="text-4xl font-black text-cyan-400 italic">DSN</span>';
+            }}
+          />
+        </div>
       </div>
 
       <div className="space-y-1">
         <h1 className="text-4xl font-black italic tracking-tighter text-white cyber-glow-text uppercase">
           DR SPEED NORD
         </h1>
-        <p className="text-sm font-serif italic tracking-[0.1em] text-gray-400">
+        <p className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 uppercase">
           PREMIUM QUALITY ONLY
         </p>
       </div>
