@@ -3,35 +3,36 @@
 import React from 'react';
 import Header from '@/components/Header';
 import ActionCards from '@/components/ActionCards';
-import { Info } from 'lucide-react';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center pb-20">
+    <div className="min-h-screen flex flex-col items-center pb-12">
       <Header />
       
-      <main className="w-full space-y-10">
+      <main className="w-full space-y-8">
         <ActionCards />
 
+        {/* Info Section */}
         <div className="px-8 w-full max-w-md mx-auto">
-          <div className="glass-card p-6 rounded-3xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-              <Info size={40} />
+          <div className="relative rounded-[2.5rem] bg-gradient-to-b from-gray-900/80 to-black border border-white/5 p-8 text-center overflow-hidden shadow-2xl">
+            {/* Points décoratifs néon */}
+            <div className="flex justify-center items-center gap-3 mb-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,1)]"></div>
+              <h4 className="text-xs font-black text-white uppercase tracking-[0.3em]">INFORMATION</h4>
+              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,1)]"></div>
             </div>
-            <h4 className="text-[10px] font-bold text-indigo-400 uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-indigo-400"></span>
-              Note Importante
-            </h4>
-            <p className="text-sm text-white/50 leading-relaxed font-light">
-              Toutes nos livraisons sont effectuées dans le respect total de votre vie privée. Pour toute assistance, notre support est disponible via Telegram.
+            
+            <p className="text-sm text-gray-400 leading-relaxed font-medium">
+              Livraisons sécurisées 7j/7. Consultez nos menus mis à jour en temps réel sur notre canal Telegram.
             </p>
           </div>
         </div>
       </main>
 
-      <footer className="mt-auto pt-20 text-center">
-        <p className="text-[9px] text-white/20 font-medium uppercase tracking-[0.4em]">
-          © 2024 Dr Speed Nord • Excellence & Discrétion
+      <footer className="mt-auto pt-12">
+        <div className="neon-line mb-4"></div>
+        <p className="text-[10px] text-gray-600 font-bold uppercase tracking-[0.4em] text-center">
+          DR SPEED NORD • EST. 2024
         </p>
       </footer>
     </div>
