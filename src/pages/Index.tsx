@@ -6,27 +6,31 @@ import ActionCards from '@/components/ActionCards';
 
 const Index = () => {
   return (
-    <div className="min-h-screen max-w-lg mx-auto pb-24">
+    <div className="min-h-screen max-w-md mx-auto pb-16">
       <Header />
       
-      <main className="mt-4 space-y-16">
+      <main className="mt-6 space-y-8">
         <ActionCards />
 
-        <div className="px-8">
-          <div className="p-10 border border-white/5 bg-white/[0.01] relative">
-            <div className="absolute top-0 left-0 w-1 h-full bg-white/10"></div>
-            <h4 className="text-[10px] tracking-[0.5em] text-white/60 uppercase mb-6 font-bold">Note de service</h4>
-            <p className="text-sm text-white/40 leading-relaxed font-light tracking-wide italic">
-              "La qualité n'est pas un acte, c'est une habitude. Notre catalogue est mis à jour quotidiennement pour garantir l'excellence."
+        <div className="px-6">
+          <div className="glass-panel p-6 rounded-[2rem] relative overflow-hidden">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+              <h4 className="text-[10px] tracking-[0.3em] text-white/80 uppercase font-black">Information</h4>
+            </div>
+            <p className="text-sm text-gray-400 leading-relaxed font-medium">
+              Livraisons sécurisées 7j/7. Consultez nos menus mis à jour en temps réel sur notre canal Telegram.
             </p>
           </div>
         </div>
       </main>
 
-      <footer className="mt-32 text-center opacity-20">
-        <p className="text-[8px] tracking-[0.6em] uppercase">
-          Établi en 2024 — Dr Speed Nord
-        </p>
+      <footer className="mt-16 text-center">
+        <div className="inline-block px-4 py-1 rounded-full border border-white/5 bg-white/[0.02]">
+          <p className="text-[9px] tracking-[0.2em] text-gray-600 font-bold uppercase">
+            Dr Speed Nord — Est. 2024
+          </p>
+        </div>
       </footer>
     </div>
   );

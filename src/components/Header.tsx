@@ -4,34 +4,34 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div className="w-full pt-16 pb-12 px-8 flex flex-col items-center">
-      <div className="relative mb-10">
-        {/* Cadre minimaliste autour du logo */}
-        <div className="w-48 h-48 border border-white/10 p-4 relative">
-          <div className="absolute -top-1 -left-1 w-4 h-4 border-t border-l border-white/40"></div>
-          <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b border-r border-white/40"></div>
-          
-          <div className="w-full h-full bg-[#050505] flex items-center justify-center overflow-hidden">
+    <div className="w-full pt-12 pb-8 px-6 flex flex-col items-center">
+      <div className="relative group cursor-pointer">
+        {/* Effet de halo derrière le logo */}
+        <div className="absolute -inset-1 bg-white/20 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+        
+        <div className="relative w-40 h-40 rounded-3xl p-[1px] bg-gradient-to-b from-white/20 to-transparent rotate-3 group-hover:rotate-0 transition-transform duration-500">
+          <div className="w-full h-full rounded-[22px] bg-black flex items-center justify-center overflow-hidden border border-white/10">
             <img 
               src="/src/assets/logo.jpg" 
               alt="Dr Speed Nord" 
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+              className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700" 
             />
           </div>
         </div>
+        
+        {/* Badge Online */}
+        <div className="absolute -bottom-2 -right-2 px-3 py-1 bg-green-500 text-black text-[10px] font-black uppercase rounded-full shadow-lg">
+          Online
+        </div>
       </div>
 
-      <div className="text-center space-y-4">
-        <h1 className="text-3xl font-light tracking-[0.3em] uppercase text-white">
-          DR SPEED <span className="font-bold">NORD</span>
+      <div className="mt-10 text-center">
+        <h1 className="text-5xl font-black tracking-tighter italic text-white neon-text">
+          DR SPEED <span className="text-white/40">NORD</span>
         </h1>
-        <div className="flex items-center justify-center gap-3">
-          <div className="h-[1px] w-8 bg-white/20"></div>
-          <span className="text-[10px] tracking-[0.4em] text-white/40 uppercase font-medium">
-            Privé • Sécurisé
-          </span>
-          <div className="h-[1px] w-8 bg-white/20"></div>
-        </div>
+        <p className="mt-2 text-gray-500 text-[10px] tracking-[0.5em] uppercase font-bold">
+          Premium Quality Only
+        </p>
       </div>
     </div>
   );
