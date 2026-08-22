@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { ShoppingBag, Star, Info } from 'lucide-react';
+import { ShoppingBag, Info } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
@@ -11,7 +11,6 @@ const BottomNav = () => {
 
   const tabs = [
     { id: 'shop', label: 'SHOP', icon: ShoppingBag, path: '/' },
-    { id: 'avis', label: 'AVIS', icon: Star, path: '/avis' },
     { id: 'infos', label: 'INFOS', icon: Info, path: '/infos' },
   ];
 
@@ -24,7 +23,7 @@ const BottomNav = () => {
             key={tab.id}
             onClick={() => navigate(tab.path)}
             className={cn(
-              "flex flex-col items-center justify-center gap-1.5 transition-all duration-300 w-20 h-16 rounded-2xl",
+              "flex flex-col items-center justify-center gap-1.5 transition-all duration-300 w-24 h-16 rounded-2xl relative",
               isActive ? "text-emerald-400" : "text-white/30 hover:text-white/50"
             )}
           >
