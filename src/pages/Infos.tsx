@@ -1,12 +1,22 @@
 "use client";
 
 import React from 'react';
-import { MapPin, Truck, Package, ShieldCheck, MessageSquare, Instagram, Send, Headphones } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { 
+  MapPin, 
+  Truck, 
+  Package, 
+  ShieldCheck, 
+  Send, 
+  Clock, 
+  CreditCard, 
+  Globe,
+  AlertCircle,
+  UserCheck
+} from 'lucide-react';
 
 const InfoSection = ({ title, children }: { title: string, children: React.ReactNode }) => (
   <div className="mb-8">
-    <h2 className="text-[11px] font-bold text-white/30 uppercase tracking-[0.15em] mb-4 px-1">
+    <h2 className="text-[11px] font-bold text-emerald-500/50 uppercase tracking-[0.2em] mb-4 px-1">
       {title}
     </h2>
     <div className="space-y-3">
@@ -19,83 +29,119 @@ const Infos = () => {
   return (
     <div className="min-h-screen pb-36 pt-8 px-5 max-w-md mx-auto">
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold tracking-tight">Informations</h1>
-        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
-          <span className="text-xs">✨</span>
+        <div className="space-y-1">
+          <h1 className="text-2xl font-black italic tracking-tight uppercase">Informations</h1>
+          <p className="text-[10px] font-bold text-white/30 tracking-widest uppercase">Dr Speed Bot Service</p>
+        </div>
+        <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+          <AlertCircle size={20} className="text-emerald-500" />
         </div>
       </div>
 
-      <InfoSection title="ZONES DE LIVRAISON 🌍">
-        <div className="grid grid-cols-2 gap-3">
-          <div className="druid-card flex flex-col items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-              <MapPin size={20} className="text-emerald-500" />
-            </div>
-            <span className="text-[13px] font-bold leading-tight">Meet-up 59<br/><span className="text-white/40 font-medium">Lille & alentours</span></span>
+      <InfoSection title="LIVRAISON LOCALE 🏎️">
+        <div className="druid-card flex items-start gap-4 border-emerald-500/20">
+          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
+            <MapPin size={20} className="text-emerald-500" />
           </div>
-          <div className="druid-card flex flex-col items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
-              <Truck size={20} className="text-blue-500" />
-            </div>
-            <span className="text-[13px] font-bold leading-tight">Livraison<br/><span className="text-white/40 font-medium">59 / 62 / 02 / 80</span></span>
+          <div>
+            <p className="text-[13px] font-bold leading-tight mb-1">Secteur 59 / 62</p>
+            <p className="text-[11px] text-white/50 font-medium">Minimum de commande : <span className="text-emerald-400">150€</span></p>
           </div>
         </div>
+      </InfoSection>
+
+      <InfoSection title="ENVOI POSTAL 📦">
+        <div className="druid-card space-y-4">
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0">
+              <Clock size={20} className="text-blue-400" />
+            </div>
+            <div>
+              <p className="text-[13px] font-bold leading-tight mb-1">Préparation Rapide</p>
+              <p className="text-[11px] text-white/50 font-medium">Soignée sous 24h. Envois du Lundi au Vendredi.</p>
+            </div>
+          </div>
+          
+          <div className="h-px bg-white/5 w-full" />
+
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0">
+              <Truck size={20} className="text-purple-400" />
+            </div>
+            <div>
+              <p className="text-[13px] font-bold leading-tight mb-1">Frais d'envois</p>
+              <p className="text-[11px] text-white/50 font-medium">Lettre suivie ou Mondial Relay (48-72h).</p>
+              <p className="text-[11px] text-emerald-400 font-bold mt-1">France : Gratuit / Inclus selon montant</p>
+            </div>
+          </div>
+
+          <div className="h-px bg-white/5 w-full" />
+
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0">
+              <Globe size={20} className="text-orange-400" />
+            </div>
+            <div>
+              <p className="text-[13px] font-bold leading-tight mb-1">International</p>
+              <p className="text-[11px] text-white/50 font-medium">Sur devis via le SAV.</p>
+            </div>
+          </div>
+        </div>
+      </InfoSection>
+
+      <InfoSection title="PAIEMENT & SÉCURITÉ 🛡️">
         <div className="druid-card flex items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0">
-            <Package size={20} className="text-orange-500" />
+          <div className="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center shrink-0">
+            <CreditCard size={20} className="text-yellow-500" />
           </div>
-          <p className="text-[13px] font-bold leading-snug">Envoi de colis dans toute la France 🇫🇷 et l'Europe 🇪🇺</p>
-        </div>
-      </InfoSection>
-
-      <InfoSection title="EMBALLAGE & ASSURANCE 🛡️">
-        <div className="druid-card flex items-start gap-4">
-          <div className="mt-0.5">
-            <ShieldCheck className="text-emerald-500" size={20} />
-          </div>
-          <p className="text-[13px] font-bold text-white/90 leading-snug">
-            Remboursement à 100% du colis en cas de perte ou de saisie.
-          </p>
+          <p className="text-[13px] font-bold leading-snug">Cryptomonnaies & Virements acceptés</p>
         </div>
         <div className="druid-card flex items-start gap-4">
           <div className="mt-0.5">
             <ShieldCheck className="text-emerald-500" size={20} />
           </div>
           <p className="text-[13px] font-bold text-white/90 leading-snug">
-            3x sous vide, double carton — emballage premium et discret.
+            Remboursement à 100% en cas de perte ou de saisie. Emballage premium 3x sous vide.
           </p>
         </div>
       </InfoSection>
 
-      <InfoSection title="MOYENS DE CONTACT 📱">
-        <div className="grid grid-cols-2 gap-3">
-          <a href="#" className="druid-card flex flex-col items-center text-center py-6">
-            <div className="w-12 h-12 rounded-full bg-sky-500/10 flex items-center justify-center mb-3">
-              <Send size={24} className="text-sky-400" />
+      <InfoSection title="CONTACTS OFFICIELS 📱">
+        <div className="grid grid-cols-1 gap-3">
+          <a 
+            href="https://t.me/DrSpeednord1" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="druid-card flex items-center justify-between group hover:border-cyan-500/30"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center">
+                <Send size={22} className="text-cyan-400" />
+              </div>
+              <div>
+                <p className="text-sm font-black italic uppercase">COMMANDER</p>
+                <p className="text-[11px] text-white/40 font-bold">@DrSpeednord1</p>
+              </div>
             </div>
-            <span className="text-sm font-bold">Telegram</span>
-            <span className="text-[10px] text-white/20 font-bold mt-1 uppercase tracking-widest">Rejoindre</span>
+            <div className="text-[10px] font-black text-cyan-500/50 group-hover:text-cyan-400 transition-colors">CONTACTER</div>
           </a>
-          <a href="#" className="druid-card flex flex-col items-center text-center py-6">
-            <div className="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center mb-3">
-              <Instagram size={24} className="text-pink-400" />
+
+          <a 
+            href="https://t.me/Drspeednordthc" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="druid-card flex items-center justify-between group hover:border-purple-500/30"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center">
+                <UserCheck size={22} className="text-purple-400" />
+              </div>
+              <div>
+                <p className="text-sm font-black italic uppercase">SAV / GROS</p>
+                <p className="text-[11px] text-white/40 font-bold">@Drspeednordthc</p>
+              </div>
             </div>
-            <span className="text-sm font-bold">Instagram</span>
-            <span className="text-[10px] text-white/20 font-bold mt-1 uppercase tracking-widest">Suivre</span>
-          </a>
-          <a href="#" className="druid-card flex flex-col items-center text-center py-6">
-            <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center mb-3">
-              <MessageSquare size={24} className="text-purple-400" />
-            </div>
-            <span className="text-sm font-bold">Luffa</span>
-            <span className="text-[10px] text-white/20 font-bold mt-1 uppercase tracking-widest">Message</span>
-          </a>
-          <a href="#" className="druid-card flex flex-col items-center text-center py-6">
-            <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center mb-3">
-              <Headphones size={24} className="text-emerald-400" />
-            </div>
-            <span className="text-sm font-bold">Support</span>
-            <span className="text-[10px] text-white/20 font-bold mt-1 uppercase tracking-widest">Aide</span>
+            <div className="text-[10px] font-black text-purple-500/50 group-hover:text-purple-400 transition-colors">CONTACTER</div>
           </a>
         </div>
       </InfoSection>
