@@ -23,7 +23,6 @@ const Header = () => {
       <div className="relative">
         {/* Cercle néon extérieur avec fond noir pour fusionner avec le logo */}
         <div className="w-36 h-36 rounded-full border-2 border-purple-500/50 flex items-center justify-center shadow-[0_0_40px_rgba(168,85,247,0.4)] bg-black overflow-hidden">
-          {/* L'image est maintenant contenue entièrement sans être coupée ni déformée */}
           <img 
             src="/src/assets/logo.jpg" 
             alt="Dr Speed Nord Logo" 
@@ -38,12 +37,6 @@ const Header = () => {
         <h1 className="text-3xl font-black tracking-tighter uppercase italic bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
           DR SPEED NORD
         </h1>
-        <div className="flex items-center justify-center gap-2 mt-1">
-          <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1 rounded-full border border-white/10">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
-            <span className="text-gray-400 text-[10px] font-bold tracking-[0.2em] uppercase">Services actifs • 24/7</span>
-          </div>
-        </div>
       </div>
     </div>
   );
