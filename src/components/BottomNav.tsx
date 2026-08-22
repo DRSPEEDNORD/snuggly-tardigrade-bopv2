@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Home, Star, Info } from 'lucide-react';
+import { ShoppingBag, Star, Info } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
@@ -10,7 +10,7 @@ const BottomNav = () => {
   const location = useLocation();
 
   const tabs = [
-    { id: 'shop', label: 'SHOP', icon: Home, path: '/' },
+    { id: 'shop', label: 'SHOP', icon: ShoppingBag, path: '/' },
     { id: 'avis', label: 'AVIS', icon: Star, path: '/avis' },
     { id: 'infos', label: 'INFOS', icon: Info, path: '/infos' },
   ];
@@ -24,12 +24,20 @@ const BottomNav = () => {
             key={tab.id}
             onClick={() => navigate(tab.path)}
             className={cn(
-              "flex flex-col items-center justify-center gap-1 transition-all duration-300 w-20 h-16 rounded-2xl",
-              isActive ? "bg-white/10 text-white" : "text-white/40 hover:text-white/60"
+              "flex flex-col items-center justify-center gap-1.5 transition-all duration-300 w-20 h-16 rounded-2xl",
+              isActive ? "text-emerald-400" : "text-white/30 hover:text-white/50"
             )}
           >
-            <tab.icon size={24} strokeWidth={isActive ? 2.5 : 2} />
-            <span className="text-[10px] font-bold tracking-widest">{tab.label}</span>
+            <tab.icon size={22} strokeWidth={isActive ? 2.5 : 2} />
+            <span className={cn(
+              "text-[9px] font-black tracking-[0.15em]",
+              isActive ? "text-emerald-400" : "text-white/30"
+            )}>
+              {tab.label}
+            </span>
+            {isActive && (
+              <div className="absolute bottom-2 w-1 h-1 bg-emerald-400 rounded-full shadow-[0_0_8px_#34d399]"></div>
+            )}
           </button>
         );
       })}
