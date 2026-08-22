@@ -21,28 +21,31 @@ const Header = () => {
       </div>
 
       <div className="relative">
-        {/* Conteneur avec bordure néon */}
-        <div className="w-32 h-32 rounded-full border-2 border-purple-500/50 p-1.5 shadow-[0_0_30px_rgba(168,85,247,0.3)] bg-[#161622]">
-          <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+        {/* Cercle néon extérieur */}
+        <div className="w-36 h-36 rounded-full border-2 border-purple-500/50 flex items-center justify-center shadow-[0_0_30px_rgba(168,85,247,0.3)] bg-[#0B0B12]">
+          {/* Conteneur du logo qui préserve le ratio sans déformer */}
+          <div className="w-[90%] h-[90%] rounded-full overflow-hidden flex items-center justify-center bg-black">
             <img 
               src="/src/assets/logo.jpg" 
               alt="Dr Speed Nord Logo" 
-              className="w-full h-full object-contain p-1" 
+              className="w-full h-full object-cover scale-110" 
             />
           </div>
         </div>
-        {/* Indicateur de statut en ligne */}
-        <div className="absolute bottom-2 right-3 w-6 h-6 bg-green-500 border-4 border-[#0B0B12] rounded-full shadow-lg z-10"></div>
+        {/* Indicateur de statut en ligne repositionné */}
+        <div className="absolute bottom-3 right-3 w-6 h-6 bg-green-500 border-4 border-[#0B0B12] rounded-full shadow-lg z-10"></div>
       </div>
 
-      <div className="text-center">
+      <div className="text-center mt-2">
         <h1 className="text-3xl font-black tracking-tighter uppercase italic bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
           DR SPEED NORD
         </h1>
-        <p className="text-gray-500 text-[10px] mt-1 flex items-center justify-center gap-2 font-bold tracking-[0.2em] uppercase">
-          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
-          Services actifs • 24/7
-        </p>
+        <div className="flex items-center justify-center gap-2 mt-1">
+          <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1 rounded-full border border-white/10">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
+            <span className="text-gray-400 text-[10px] font-bold tracking-[0.2em] uppercase">Services actifs • 24/7</span>
+          </div>
+        </div>
       </div>
     </div>
   );
