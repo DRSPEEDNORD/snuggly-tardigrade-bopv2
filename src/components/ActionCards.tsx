@@ -24,8 +24,10 @@ const ActionCards = () => {
       </a>
 
       {/* Install App Button */}
-      <a 
-        href="#" 
+      <a
+        href="https://drspeedpwa.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
         className="cyber-border group flex items-center p-5 transition-all duration-300 hover:scale-[1.02] hover:border-emerald-400/60"
       >
         <div className="w-14 h-14 flex items-center justify-center text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]">

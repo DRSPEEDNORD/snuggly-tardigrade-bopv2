@@ -17,14 +17,14 @@ const ActionButtons = () => {
         </a>
       </Button>
       
-      <Button 
+      <Button
         asChild
         variant="outline"
         className="w-full sm:w-auto border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 px-8 py-6 rounded-2xl text-lg font-semibold transition-all hover:scale-105"
       >
-        <a href="https://votre-autre-app.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://drspeedpwa.netlify.app/" target="_blank" rel="noopener noreferrer">
           <ExternalLink className="mr-2 h-5 w-5" />
-          Mon Autre App
+          Installer l'App
         </a>
       </Button>
     </div>
