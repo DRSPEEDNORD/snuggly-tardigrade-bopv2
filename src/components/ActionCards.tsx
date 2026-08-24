@@ -82,16 +82,6 @@ const ActionCards = () => {
 
         <ArrowUpRight size={18} className="text-white/10 group-hover:text-cyan-400 transition-colors" />
       </motion.a>
-
-      {/* Technical Footer Strip */}
-      <motion.div 
-        variants={item}
-        className="py-3 px-6 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center gap-4 opacity-50"
-      >
-        <div className="w-1 h-1 rounded-full bg-emerald-500"></div>
-        <span className="text-[8px] font-black text-white/40 tracking-[0.4em] uppercase">End-to-End Encryption Active</span>
-        <div className="w-1 h-1 rounded-full bg-emerald-500"></div>
-      </motion.div>
     </motion.div>
   );
 };
