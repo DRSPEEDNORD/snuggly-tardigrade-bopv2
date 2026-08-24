@@ -80,7 +80,7 @@ const Infos = () => {
         <StepCard 
           number="ÉTAPE 02"
           title="Installation PWA"
-          description="Cliquez sur 'Installer' à l'accueil. Une fois ajoutée à votre écran d'accueil, vous aurez accès à notre catalogue complet et vos produits."
+          description="Cliquez sur 'Installer' à l'accueil. Une fois ajoutée à votre écran d'accueil, vous aurez accès à notre plateforme optimisée."
           icon={Download}
           colorClass="bg-blue-500/20 text-blue-400 border border-blue-500/30"
         />
@@ -91,10 +91,10 @@ const Infos = () => {
 
         <StepCard 
           number="ÉTAPE 03"
-          title="Menu & Produits"
-          description="Sur la seconde application, explorez tout notre menu, passez vos commandes et gérez votre profil en toute simplicité."
-          icon={ShoppingBag}
-          colorClass="bg-orange-500/20 text-orange-400 border border-orange-500/30"
+          title="Notifications"
+          description="Activez les notifications sur la PWA pour recevoir les alertes de stock, les nouveaux produits et le suivi de vos commandes en temps réel."
+          icon={Bell}
+          colorClass="bg-purple-500/20 text-purple-400 border border-purple-500/30"
         />
 
         <div className="flex justify-center py-1">
@@ -103,10 +103,10 @@ const Infos = () => {
 
         <StepCard 
           number="ÉTAPE 04"
-          title="Notifications"
-          description="Activez les notifications sur la PWA pour recevoir les alertes de stock, les nouveaux produits et le suivi de vos commandes en temps réel."
-          icon={Bell}
-          colorClass="bg-purple-500/20 text-purple-400 border border-purple-500/30"
+          title="Menu & Produits"
+          description="Explorez tout notre menu, passez vos commandes et gérez votre profil en toute simplicité sur votre nouvelle application."
+          icon={ShoppingBag}
+          colorClass="bg-orange-500/20 text-orange-400 border border-orange-500/30"
         />
       </div>
 
