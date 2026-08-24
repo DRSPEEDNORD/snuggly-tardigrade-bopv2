@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const Header = () => {
   return (
     <header className="w-full pt-16 pb-10 px-6 flex flex-col items-center text-center relative">
-      {/* Logo avec double anneau et glow intense - Taille réduite */}
+      {/* Logo avec double anneau et glow intense */}
       <div className="relative mb-10">
         <motion.div 
           animate={{ rotate: 360 }}

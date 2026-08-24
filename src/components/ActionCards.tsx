@@ -25,7 +25,7 @@ const ActionCards = () => {
       animate="show"
       className="flex flex-col gap-5 px-6 w-full max-w-md mx-auto"
     >
-      {/* Main Install Card - Redimensionnée */}
+      {/* Main Install Card */}
       <motion.a
         variants={item}
         href="https://drspeedpwa.netlify.app/"
@@ -59,7 +59,7 @@ const ActionCards = () => {
         </div>
       </motion.a>
 
-      {/* Telegram Card - Secondary but Stylish */}
+      {/* Telegram Card */}
       <motion.a 
         variants={item}
         href="https://t.me/votre_canal" 
