@@ -38,7 +38,6 @@ const ActionCards = () => {
             <Download size={24} />
           </div>
           <div className="flex flex-col items-end">
-            <span className="text-[7px] font-black text-emerald-500/50 tracking-[0.2em] uppercase">System Status</span>
             <span className="text-[8px] font-bold text-emerald-400 uppercase flex items-center gap-1.5">
               <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse"></div>
               Innovation DrSpeedNord
