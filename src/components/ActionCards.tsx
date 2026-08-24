@@ -40,7 +40,7 @@ const ActionCards = () => {
           <div className="flex flex-col items-end">
             <span className="text-[8px] font-bold text-emerald-400 uppercase flex items-center gap-1.5">
               <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse"></div>
-              Innovation DrSpeedNord
+              Exclusivité DrSpeedNord
             </span>
           </div>
         </div>
