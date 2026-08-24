@@ -24,14 +24,14 @@ const Index = () => {
         <ActionCards />
       </main>
 
-      <footer className="w-full mt-auto pt-16 pb-8 z-10">
+      <footer className="w-full mt-auto pt-16 pb-8 z-10 px-6">
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-3">
             <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-emerald-500/50"></div>
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></div>
             <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-emerald-500/50"></div>
           </div>
-          <p className="text-[9px] text-white/20 font-black uppercase tracking-[0.8em] text-center">
+          <p className="text-[7px] sm:text-[9px] text-white/20 font-black uppercase tracking-[0.4em] sm:tracking-[0.8em] text-center max-w-[280px] sm:max-w-none">
             INNOVATION PAR DR SPEED NORD
           </p>
         </div>
