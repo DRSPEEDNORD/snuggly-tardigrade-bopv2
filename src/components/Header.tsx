@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import ScrambleText from './ScrambleText';
+import VerticalScramble from './VerticalScramble';
 
 const Header = () => {
   return (
@@ -43,9 +43,9 @@ const Header = () => {
           <h2 className="text-5xl font-black italic tracking-tighter text-outline absolute -top-3 left-1/2 -translate-x-1/2 opacity-20 select-none">
             DR SPEED
           </h2>
-          <h1 className="text-4xl font-black italic tracking-tighter text-white uppercase leading-none relative flex items-center justify-center gap-2">
-            <ScrambleText text="DR SPEED" delay={500} />
-            <ScrambleText text="NORD" className="text-emerald-400 glow-emerald" delay={800} />
+          <h1 className="text-4xl font-black italic tracking-tighter text-white uppercase leading-none relative flex items-center justify-center gap-3">
+            <VerticalScramble text="DRSPEED" delay={500} />
+            <VerticalScramble text="NORD" className="text-emerald-400 glow-emerald" delay={1200} />
           </h1>
         </div>
         
