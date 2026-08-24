@@ -10,64 +10,59 @@ interface VerticalScrambleProps {
 }
 
 const VerticalScramble = ({ text, className, delay = 0 }: VerticalScrambleProps) => {
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
-  
   return (
     <span className={`inline-flex overflow-hidden ${className}`}>
       {text.split("").map((char, index) => (
         <LetterSlot 
           key={index} 
           targetChar={char} 
-          delay={delay + (index * 150)} 
-          chars={chars}
+          delay={delay + (index * 100)} 
         />
       ))}
     </span>
   );
 };
 
-const LetterSlot = ({ targetChar, delay, chars }: { targetChar: string, delay: number, chars: string }) => {
-  const [isDone, setIsDone] = useState(false);
-  const [currentChar, setCurrentChar] = useState(chars[Math.floor(Math.random() * chars.length)]);
+const LetterSlot = ({ targetChar, delay }: { targetChar: string, delay: number }) => {
+  const [currentChar, setCurrentChar] = useState("");
+  const chars = "!<>-_\\/[]{}—=+*^?#________";
 
   useEffect(() => {
     let timeout: any;
     let interval: any;
+    let iterations = 0;
+    const maxIterations = 12;
 
     timeout = setTimeout(() => {
-      let iterations = 0;
-      const maxIterations = 15; // Plus d'itérations pour ralentir l'effet
-
       interval = setInterval(() => {
-        setCurrentChar(chars[Math.floor(Math.random() * chars.length)]);
-        iterations++;
-
         if (iterations >= maxIterations) {
           setCurrentChar(targetChar);
-          setIsDone(true);
           clearInterval(interval);
+        } else {
+          setCurrentChar(chars[Math.floor(Math.random() * chars.length)]);
+          iterations++;
         }
-      }, 80); // Vitesse de défilement plus lente
+      }, 60);
     }, delay);
 
     return () => {
       clearTimeout(timeout);
       clearInterval(interval);
     };
-  }, [targetChar, delay, chars]);
+  }, [targetChar, delay]);
 
   return (
-    <span className="relative inline-block w-[0.65em] text-center">
+    <span className="relative inline-block w-[0.6em] text-center">
       <AnimatePresence mode="wait">
         <motion.span
           key={currentChar}
-          initial={{ y: "100%", opacity: 0, filter: "blur(4px)" }}
-          animate={{ y: "0%", opacity: 1, filter: "blur(0px)" }}
-          exit={{ y: "-100%", opacity: 0, filter: "blur(4px)" }}
-          transition={{ duration: 0.15, ease: "easeOut" }}
+          initial={{ y: "60%", opacity: 0 }}
+          animate={{ y: "0%", opacity: 1 }}
+          exit={{ y: "-60%", opacity: 0 }}
+          transition={{ duration: 0.1, ease: "linear" }}
           className="inline-block"
         >
-          {currentChar}
+          {currentChar || " "}
         </motion.span>
       </AnimatePresence>
     </span>
