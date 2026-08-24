@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Send, Download, ArrowRight, Shield } from 'lucide-react';
+import { Send, Download, ArrowUpRight, Shield, Zap, Users, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ActionCards = () => {
@@ -9,13 +9,13 @@ const ActionCards = () => {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 }
+      transition: { staggerChildren: 0.1 }
     }
   };
 
   const item = {
-    hidden: { opacity: 0, x: -20 },
-    show: { opacity: 1, x: 0 }
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
   };
 
   return (
@@ -23,76 +23,94 @@ const ActionCards = () => {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-col gap-8 px-6 w-full max-w-md mx-auto"
+      className="grid grid-cols-2 gap-4 px-6 w-full max-w-md mx-auto"
     >
-      {/* Install App Button */}
+      {/* Main Install Card - Full Width */}
       <motion.a
         variants={item}
         href="https://drspeedpwa.netlify.app/"
         target="_blank"
         rel="noopener noreferrer"
-        className="hyper-card group p-8 flex flex-col gap-6"
+        className="hyper-card col-span-2 group p-6 flex flex-col gap-4 border-emerald-500/20 hover:border-emerald-500/40"
       >
-        <div className="flex items-center justify-between">
-          <div className="w-14 h-14 flex items-center justify-center bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.1)] group-hover:scale-110 transition-transform duration-500">
-            <Download size={28} strokeWidth={2} />
+        <div className="flex justify-between items-start">
+          <div className="w-12 h-12 flex items-center justify-center bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 group-hover:scale-110 transition-transform">
+            <Download size={24} />
           </div>
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-            <span className="text-[9px] font-black text-emerald-400 tracking-widest uppercase">Live Now</span>
+          <div className="text-right">
+            <span className="text-[8px] font-black text-emerald-500/50 tracking-[0.2em] uppercase block">System Status</span>
+            <span className="text-[10px] font-bold text-emerald-400 uppercase">Online & Secure</span>
           </div>
         </div>
         
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <h3 className="text-2xl font-black text-white tracking-tight uppercase italic">INSTALLER L'APP</h3>
-            <ArrowRight size={20} className="text-emerald-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
-          </div>
-          <p className="text-[11px] text-white/40 font-medium leading-relaxed uppercase tracking-wider">
-            Accédez à notre catalogue complet et commandez en 2 clics avec notre application optimisée.
+        <div>
+          <h3 className="text-2xl font-black text-white tracking-tighter uppercase italic flex items-center gap-2">
+            INSTALLER L'APP
+            <Zap size={18} className="text-emerald-400 fill-emerald-400/20" />
+          </h3>
+          <p className="text-[10px] text-white/40 font-medium uppercase tracking-wider mt-1">
+            Plateforme optimisée pour une expérience fluide et anonyme.
           </p>
         </div>
 
-        <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-          <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em]">v2.4.0 Stable</span>
-          <Shield size={14} className="text-white/10" />
+        <div className="flex items-center justify-between pt-4 border-t border-white/5">
+          <div className="flex items-center gap-2">
+            <Shield size={12} className="text-emerald-500/50" />
+            <span className="text-[9px] font-bold text-white/20 uppercase">Encrypted V2.4</span>
+          </div>
+          <ArrowUpRight size={16} className="text-white/20 group-hover:text-emerald-400 transition-colors" />
         </div>
       </motion.a>
 
-      {/* Telegram Button */}
+      {/* Telegram Card - Half Width */}
       <motion.a 
         variants={item}
         href="https://t.me/votre_canal" 
         target="_blank" 
         rel="noopener noreferrer" 
-        className="hyper-card group p-8 flex flex-col gap-6 border-cyan-500/10 hover:border-cyan-500/30"
+        className="hyper-card group p-5 flex flex-col gap-3 border-cyan-500/10 hover:border-cyan-500/30"
       >
-        <div className="flex items-center justify-between">
-          <div className="w-14 h-14 flex items-center justify-center bg-cyan-500/10 border border-cyan-500/30 rounded-2xl text-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.1)] group-hover:scale-110 transition-transform duration-500">
-            <Send size={28} strokeWidth={2} className="-rotate-12 -translate-x-0.5" />
-          </div>
-          <span className="text-[9px] font-black text-cyan-400/50 tracking-widest uppercase">Community</span>
+        <div className="w-10 h-10 flex items-center justify-center bg-cyan-500/10 border border-cyan-500/30 rounded-lg text-cyan-400">
+          <Send size={20} className="-rotate-12" />
         </div>
-        
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <h3 className="text-2xl font-black text-white tracking-tight uppercase italic">CANAL TELEGRAM</h3>
-            <ArrowRight size={20} className="text-cyan-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
+        <div>
+          <h4 className="text-sm font-black text-white uppercase italic">TELEGRAM</h4>
+          <div className="flex items-center gap-1.5 mt-1">
+            <Users size={10} className="text-white/20" />
+            <span className="text-[9px] font-bold text-cyan-400/60 uppercase">+5K</span>
           </div>
-          <p className="text-[11px] text-white/40 font-medium leading-relaxed uppercase tracking-wider">
-            Rejoignez plus de 5000 membres. News exclusives, drops et support client 24/7.
-          </p>
-        </div>
-
-        <div className="pt-4 border-t border-white/5 flex items-center gap-2">
-          <div className="flex -space-x-2">
-            {[1,2,3].map(i => (
-              <div key={i} className="w-6 h-6 rounded-full border-2 border-[#010402] bg-white/10"></div>
-            ))}
-          </div>
-          <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] ml-2">+5k membres</span>
         </div>
       </motion.a>
+
+      {/* Network/Support Card - Half Width */}
+      <motion.div 
+        variants={item}
+        className="hyper-card group p-5 flex flex-col gap-3 border-purple-500/10 hover:border-purple-500/30 cursor-default"
+      >
+        <div className="w-10 h-10 flex items-center justify-center bg-purple-500/10 border border-purple-500/30 rounded-lg text-purple-400">
+          <Globe size={20} />
+        </div>
+        <div>
+          <h4 className="text-sm font-black text-white uppercase italic">RÉSEAU</h4>
+          <div className="flex items-center gap-1.5 mt-1">
+            <div className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse"></div>
+            <span className="text-[9px] font-bold text-purple-400/60 uppercase">Active</span>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Small Info Strip */}
+      <motion.div 
+        variants={item}
+        className="col-span-2 py-3 px-6 rounded-full bg-white/5 border border-white/5 flex items-center justify-between"
+      >
+        <span className="text-[8px] font-black text-white/20 tracking-[0.3em] uppercase">Protocol: Secure_Access_v4</span>
+        <div className="flex gap-2">
+          <div className="w-1 h-1 rounded-full bg-emerald-500/30"></div>
+          <div className="w-1 h-1 rounded-full bg-emerald-500/30"></div>
+          <div className="w-1 h-1 rounded-full bg-emerald-500"></div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
