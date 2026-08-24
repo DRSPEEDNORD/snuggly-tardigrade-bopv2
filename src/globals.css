@@ -6,64 +6,72 @@
   :root {
     --background: 160 30% 2%;
     --foreground: 0 0% 100%;
-    --emerald-glow: 16 185 129;
+    --emerald-primary: 16 185 129;
+    --emerald-glow: rgba(16, 185, 129, 0.5);
   }
 
   body {
-    @apply bg-[#020604] text-white antialiased overflow-x-hidden font-sans selection:bg-emerald-500/30;
-    background-color: #020604;
+    @apply bg-[#010402] text-white antialiased overflow-x-hidden font-sans;
+    background-color: #010402;
   }
 
-  /* Texture de grain pour le côté premium */
+  /* Grain de film premium */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
     background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-    opacity: 0.05;
+    opacity: 0.08;
     pointer-events: none;
-    z-index: 50;
-  }
-
-  /* Grille cybernétique plus fine */
-  .bg-grid {
-    position: fixed;
-    inset: 0;
-    background-image: 
-      linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
-    mask-image: radial-gradient(circle at center, black, transparent 90%);
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  /* Halos de lumière */
-  .bg-glow {
-    position: fixed;
-    inset: 0;
-    background: 
-      radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 100% 100%, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -2;
+    z-index: 100;
   }
 }
 
-.cyber-card {
-  @apply relative overflow-hidden bg-white/[0.03] border border-white/10 rounded-[2rem] backdrop-blur-xl transition-all duration-500;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+/* Animation de scanline */
+.scanline {
+  width: 100%;
+  height: 100px;
+  z-index: 10;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(16, 185, 129, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.1;
+  position: absolute;
+  bottom: 100%;
+  animation: scanline 8s linear infinite;
 }
 
-.cyber-card:hover {
-  @apply border-emerald-500/40 bg-white/[0.06];
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+@keyframes scanline {
+  0% { bottom: 100%; }
+  100% { bottom: -100%; }
 }
 
-.glow-text {
-  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+.hyper-card {
+  @apply relative overflow-hidden bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 rounded-[2.5rem] backdrop-blur-2xl transition-all duration-700;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+.hyper-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg, transparent 0%, rgba(255, 255, 255, 0.05) 45%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 55%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.hyper-card:hover::after {
+  transform: translateX(100%);
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
+
+.glow-emerald {
+  filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.4));
 }
 
 .druid-tab-bar {
-  @apply fixed bottom-8 left-1/2 -translate-x-1/2 w-[90%] max-w-md h-20 bg-black/60 border border-white/10 backdrop-blur-3xl rounded-[2.5rem] flex items-center justify-around px-4 z-50 shadow-[0_20px_50px_rgba(0,0,0,0.8)];
+  @apply fixed bottom-8 left-1/2 -translate-x-1/2 w-[92%] max-w-md h-20 bg-black/40 border border-white/10 backdrop-blur-3xl rounded-[3rem] flex items-center justify-around px-6 z-50;
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
 }
