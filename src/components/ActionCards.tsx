@@ -59,7 +59,7 @@ const ActionCards = () => {
         <div className="flex items-center justify-between pt-5 border-t border-white/5">
           <div className="flex items-center gap-2">
             <Shield size={12} className="text-white/20" />
-            <span className="text-[9px] font-bold text-white/20 uppercase tracking-widest">v2.4.0 STABLE</span>
+            <span className="text-[9px] font-bold text-white/20 uppercase tracking-widest">SECURED ACCESS</span>
           </div>
           <div className="flex items-center gap-1 text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity">
             <span className="text-[9px] font-black uppercase">Lancer</span>
