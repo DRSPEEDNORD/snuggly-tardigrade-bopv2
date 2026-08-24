@@ -28,7 +28,7 @@ const ActionCards = () => {
       {/* Carte Installer l'App */}
       <motion.a
         variants={item}
-        href="https://cress-magnolia-75rrodb.dappling.network/"
+        href="https://electric-walrus-rest-b0jr0t.dappling.network/"
         target="_blank"
         rel="noopener noreferrer"
         className="relative group overflow-hidden rounded-[2rem] bg-black/40 border border-white/5 hover:border-emerald-500/30 transition-all duration-500 p-6"
