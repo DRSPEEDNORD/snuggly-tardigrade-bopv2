@@ -25,37 +25,37 @@ const ActionCards = () => {
       animate="show"
       className="flex flex-col gap-5 px-6 w-full max-w-md mx-auto"
     >
-      {/* Main Install Card - Dominant */}
+      {/* Main Install Card - Redimensionnée */}
       <motion.a
         variants={item}
         href="https://drspeedpwa.netlify.app/"
         target="_blank"
         rel="noopener noreferrer"
-        className="hyper-card group p-7 flex flex-col gap-6 border-emerald-500/20 hover:border-emerald-500/40"
+        className="hyper-card group p-6 flex flex-col gap-4 border-emerald-500/20 hover:border-emerald-500/40"
       >
         <div className="flex justify-between items-start">
-          <div className="w-14 h-14 flex items-center justify-center bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-400 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
-            <Download size={28} />
+          <div className="w-12 h-12 flex items-center justify-center bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+            <Download size={24} />
           </div>
           <div className="flex flex-col items-end">
-            <span className="text-[8px] font-black text-emerald-500/50 tracking-[0.2em] uppercase">System Status</span>
-            <span className="text-[10px] font-bold text-emerald-400 uppercase flex items-center gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+            <span className="text-[7px] font-black text-emerald-500/50 tracking-[0.2em] uppercase">System Status</span>
+            <span className="text-[9px] font-bold text-emerald-400 uppercase flex items-center gap-1.5">
+              <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse"></div>
               Online
             </span>
           </div>
         </div>
         
-        <div className="space-y-2">
-          <h3 className="text-3xl font-black text-white tracking-tighter uppercase italic flex items-center justify-between">
-            <span className="flex items-center gap-3">
+        <div className="space-y-1">
+          <h3 className="text-2xl font-black text-white tracking-tighter uppercase italic flex items-center justify-between">
+            <span className="flex items-center gap-2">
               INSTALLER L'APP
-              <Zap size={20} className="text-emerald-400 fill-emerald-400/20" />
+              <Zap size={18} className="text-emerald-400 fill-emerald-400/20" />
             </span>
-            <ArrowUpRight size={20} className="text-white/10 group-hover:text-emerald-400 transition-colors" />
+            <ArrowUpRight size={18} className="text-white/10 group-hover:text-emerald-400 transition-colors" />
           </h3>
-          <p className="text-[11px] text-white/40 font-medium uppercase tracking-wider leading-relaxed">
-            Accès direct à notre plateforme sécurisée. <br/>Expérience fluide sans intermédiaire.
+          <p className="text-[10px] text-white/40 font-medium uppercase tracking-wider leading-relaxed">
+            Accès direct à notre plateforme sécurisée.
           </p>
         </div>
       </motion.a>
