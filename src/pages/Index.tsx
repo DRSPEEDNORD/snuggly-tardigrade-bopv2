@@ -32,7 +32,7 @@ const Index = () => {
             <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-emerald-500/50"></div>
           </div>
           <p className="text-[9px] text-white/20 font-black uppercase tracking-[0.8em] text-center">
-            DR SPEED NORD • SECURED ECOSYSTEM
+            INNOVATION PAR DR SPEED NORD
           </p>
         </div>
       </footer>
