@@ -7,7 +7,8 @@ import {
   Zap, 
   ArrowRight,
   Download,
-  ShieldCheck
+  ShieldCheck,
+  ShoppingBag
 } from 'lucide-react';
 
 const StepCard = ({ 
@@ -55,10 +56,10 @@ const Infos = () => {
           <span className="text-[10px] font-black text-emerald-500 tracking-[0.3em] uppercase">Guide Officiel</span>
         </div>
         <h1 className="text-3xl font-black italic tracking-tighter uppercase leading-none">
-          COMMENT ÇA <span className="text-emerald-400">FONCTIONNE ?</span>
+          VOTRE <span className="text-emerald-400">ÉCOSYSTÈME</span>
         </h1>
         <p className="text-[11px] text-white/30 font-bold mt-2 uppercase tracking-wider">
-          Optimisez votre expérience Dr Speed Nord
+          Comment utiliser nos services
         </p>
       </div>
 
@@ -66,8 +67,8 @@ const Infos = () => {
       <div className="space-y-4">
         <StepCard 
           number="ÉTAPE 01"
-          title="Le Portail"
-          description="Cette application est votre point d'entrée sécurisé. Elle vous permet d'accéder aux liens officiels et d'installer notre plateforme principale."
+          title="Le Portail (Ici)"
+          description="Cette application est votre accès sécurisé. Elle sert de pont pour installer la plateforme principale sans passer par les stores classiques."
           icon={Zap}
           colorClass="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
         />
@@ -79,7 +80,7 @@ const Infos = () => {
         <StepCard 
           number="ÉTAPE 02"
           title="Installation PWA"
-          description="Cliquez sur 'Installer' dans l'accueil. Ajoutez l'application à votre écran d'accueil pour une expérience fluide, sans passer par les stores."
+          description="Cliquez sur 'Installer' à l'accueil. Une fois ajoutée à votre écran d'accueil, vous aurez accès à notre catalogue complet et vos produits."
           icon={Download}
           colorClass="bg-blue-500/20 text-blue-400 border border-blue-500/30"
         />
@@ -90,8 +91,20 @@ const Infos = () => {
 
         <StepCard 
           number="ÉTAPE 03"
+          title="Menu & Produits"
+          description="Sur la seconde application, explorez tout notre menu, passez vos commandes et gérez votre profil en toute simplicité."
+          icon={ShoppingBag}
+          colorClass="bg-orange-500/20 text-orange-400 border border-orange-500/30"
+        />
+
+        <div className="flex justify-center py-1">
+          <ArrowRight size={20} className="text-white/10 animate-pulse" />
+        </div>
+
+        <StepCard 
+          number="ÉTAPE 04"
           title="Notifications"
-          description="Une fois sur la seconde application, activez les notifications. C'est ici que vous recevrez nos alertes en temps réel et vos suivis."
+          description="Activez les notifications sur la PWA pour recevoir les alertes de stock, les nouveaux produits et le suivi de vos commandes en temps réel."
           icon={Bell}
           colorClass="bg-purple-500/20 text-purple-400 border border-purple-500/30"
         />
@@ -101,10 +114,10 @@ const Infos = () => {
       <div className="mt-10 p-5 rounded-[2rem] bg-gradient-to-br from-emerald-500/5 to-transparent border border-emerald-500/10">
         <div className="flex items-center gap-3 mb-3">
           <ShieldCheck size={18} className="text-emerald-400" />
-          <span className="text-[11px] font-black uppercase tracking-widest text-emerald-400">Sécurité & Confidentialité</span>
+          <span className="text-[11px] font-black uppercase tracking-widest text-emerald-400">Confidentialité Totale</span>
         </div>
         <p className="text-[11px] text-white/50 leading-relaxed font-medium">
-          Nos applications sont conçues pour protéger votre anonymat. Aucune donnée personnelle n'est stockée sur les serveurs classiques.
+          L'utilisation de la PWA permet de contourner les restrictions des stores tout en garantissant un anonymat complet et une sécurité renforcée.
         </p>
       </div>
 
