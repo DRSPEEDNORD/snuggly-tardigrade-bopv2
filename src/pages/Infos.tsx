@@ -2,23 +2,45 @@
 
 import React from 'react';
 import { 
-  MapPin, 
-  Truck, 
-  Send, 
-  Clock, 
-  CreditCard, 
-  Globe,
-  AlertCircle,
-  UserCheck
+  Smartphone, 
+  Bell, 
+  Zap, 
+  ArrowRight,
+  Download,
+  ShieldCheck
 } from 'lucide-react';
 
-const InfoSection = ({ title, children }: { title: string, children: React.ReactNode }) => (
-  <div className="mb-8">
-    <h2 className="text-[11px] font-bold text-emerald-500/50 uppercase tracking-[0.2em] mb-4 px-1">
-      {title}
-    </h2>
-    <div className="space-y-3">
-      {children}
+const StepCard = ({ 
+  number, 
+  title, 
+  description, 
+  icon: Icon, 
+  colorClass 
+}: { 
+  number: string, 
+  title: string, 
+  description: string, 
+  icon: any,
+  colorClass: string 
+}) => (
+  <div className="druid-card relative overflow-hidden group border-white/5 hover:border-white/10 transition-all duration-500">
+    <div className={`absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500`}>
+      <Icon size={120} />
+    </div>
+    
+    <div className="flex items-start gap-4 relative z-10">
+      <div className={`w-12 h-12 rounded-2xl ${colorClass} flex items-center justify-center shrink-0 shadow-lg`}>
+        <Icon size={24} className="text-white" />
+      </div>
+      <div className="space-y-1">
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-black text-emerald-500/50 tracking-widest">{number}</span>
+          <h3 className="text-sm font-black uppercase italic tracking-wide">{title}</h3>
+        </div>
+        <p className="text-[12px] text-white/60 leading-relaxed font-medium">
+          {description}
+        </p>
+      </div>
     </div>
   </div>
 );
@@ -26,118 +48,68 @@ const InfoSection = ({ title, children }: { title: string, children: React.React
 const Infos = () => {
   return (
     <div className="min-h-screen pb-36 pt-8 px-5 max-w-md mx-auto">
-      <div className="flex items-center justify-between mb-8">
-        <div className="space-y-1">
-          <h1 className="text-2xl font-black italic tracking-tight uppercase">Informations</h1>
-          <p className="text-[10px] font-bold text-white/30 tracking-widest uppercase">Dr Speed Bot Service</p>
+      {/* Header */}
+      <div className="flex flex-col mb-10">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="h-[2px] w-8 bg-emerald-500"></div>
+          <span className="text-[10px] font-black text-emerald-500 tracking-[0.3em] uppercase">Guide Officiel</span>
         </div>
-        <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-          <AlertCircle size={20} className="text-emerald-500" />
-        </div>
+        <h1 className="text-3xl font-black italic tracking-tighter uppercase leading-none">
+          COMMENT ÇA <span className="text-emerald-400">FONCTIONNE ?</span>
+        </h1>
+        <p className="text-[11px] text-white/30 font-bold mt-2 uppercase tracking-wider">
+          Optimisez votre expérience Dr Speed Nord
+        </p>
       </div>
 
-      <InfoSection title="LIVRAISON LOCALE 🏎️">
-        <div className="druid-card flex items-start gap-4 border-emerald-500/20">
-          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
-            <MapPin size={20} className="text-emerald-500" />
-          </div>
-          <div>
-            <p className="text-[13px] font-bold leading-tight mb-1">Secteur 59 / 62</p>
-            <p className="text-[11px] text-white/50 font-medium">Minimum de commande : <span className="text-emerald-400">150€</span></p>
-          </div>
+      {/* Steps Container */}
+      <div className="space-y-4">
+        <StepCard 
+          number="ÉTAPE 01"
+          title="Le Portail"
+          description="Cette application est votre point d'entrée sécurisé. Elle vous permet d'accéder aux liens officiels et d'installer notre plateforme principale."
+          icon={Zap}
+          colorClass="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+        />
+
+        <div className="flex justify-center py-1">
+          <ArrowRight size={20} className="text-white/10 animate-pulse" />
         </div>
-      </InfoSection>
 
-      <InfoSection title="ENVOI POSTAL 📦">
-        <div className="druid-card space-y-4">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0">
-              <Clock size={20} className="text-blue-400" />
-            </div>
-            <div>
-              <p className="text-[13px] font-bold leading-tight mb-1">Préparation Rapide</p>
-              <p className="text-[11px] text-white/50 font-medium">Soignée sous 24h. Envois du Lundi au Vendredi.</p>
-            </div>
-          </div>
-          
-          <div className="h-px bg-white/5 w-full" />
+        <StepCard 
+          number="ÉTAPE 02"
+          title="Installation PWA"
+          description="Cliquez sur 'Installer' dans l'accueil. Ajoutez l'application à votre écran d'accueil pour une expérience fluide, sans passer par les stores."
+          icon={Download}
+          colorClass="bg-blue-500/20 text-blue-400 border border-blue-500/30"
+        />
 
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0">
-              <Truck size={20} className="text-purple-400" />
-            </div>
-            <div>
-              <p className="text-[13px] font-bold leading-tight mb-1">Frais d'envois</p>
-              <p className="text-[11px] text-white/50 font-medium">Lettre suivie ou Mondial Relay (48-72h).</p>
-              <p className="text-[11px] text-emerald-400 font-bold mt-1">France : Gratuit / Inclus selon montant</p>
-            </div>
-          </div>
-
-          <div className="h-px bg-white/5 w-full" />
-
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0">
-              <Globe size={20} className="text-orange-400" />
-            </div>
-            <div>
-              <p className="text-[13px] font-bold leading-tight mb-1">International</p>
-              <p className="text-[11px] text-white/50 font-medium">Sur devis via le SAV.</p>
-            </div>
-          </div>
+        <div className="flex justify-center py-1">
+          <ArrowRight size={20} className="text-white/10 animate-pulse" />
         </div>
-      </InfoSection>
 
-      <InfoSection title="PAIEMENT 💳">
-        <div className="druid-card flex items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center shrink-0">
-            <CreditCard size={20} className="text-yellow-500" />
-          </div>
-          <p className="text-[13px] font-bold leading-snug">Cryptomonnaies & Virements acceptés</p>
+        <StepCard 
+          number="ÉTAPE 03"
+          title="Notifications"
+          description="Une fois sur la seconde application, activez les notifications. C'est ici que vous recevrez nos alertes en temps réel et vos suivis."
+          icon={Bell}
+          colorClass="bg-purple-500/20 text-purple-400 border border-purple-500/30"
+        />
+      </div>
+
+      {/* Security Note */}
+      <div className="mt-10 p-5 rounded-[2rem] bg-gradient-to-br from-emerald-500/5 to-transparent border border-emerald-500/10">
+        <div className="flex items-center gap-3 mb-3">
+          <ShieldCheck size={18} className="text-emerald-400" />
+          <span className="text-[11px] font-black uppercase tracking-widest text-emerald-400">Sécurité & Confidentialité</span>
         </div>
-      </InfoSection>
+        <p className="text-[11px] text-white/50 leading-relaxed font-medium">
+          Nos applications sont conçues pour protéger votre anonymat. Aucune donnée personnelle n'est stockée sur les serveurs classiques.
+        </p>
+      </div>
 
-      <InfoSection title="CONTACTS OFFICIELS 📱">
-        <div className="grid grid-cols-1 gap-3">
-          <a 
-            href="https://t.me/DrSpeednord1" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="druid-card flex items-center justify-between group hover:border-cyan-500/30"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center">
-                <Send size={22} className="text-cyan-400" />
-              </div>
-              <div>
-                <p className="text-sm font-black italic uppercase">COMMANDER</p>
-                <p className="text-[11px] text-white/40 font-bold">@DrSpeednord1</p>
-              </div>
-            </div>
-            <div className="text-[10px] font-black text-cyan-500/50 group-hover:text-cyan-400 transition-colors">CONTACTER</div>
-          </a>
-
-          <a 
-            href="https://t.me/Drspeednordthc" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="druid-card flex items-center justify-between group hover:border-purple-500/30"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center">
-                <UserCheck size={22} className="text-purple-400" />
-              </div>
-              <div>
-                <p className="text-sm font-black italic uppercase">SAV / GROS</p>
-                <p className="text-[11px] text-white/40 font-bold">@Drspeednordthc</p>
-              </div>
-            </div>
-            <div className="text-[10px] font-black text-purple-500/50 group-hover:text-purple-400 transition-colors">CONTACTER</div>
-          </a>
-        </div>
-      </InfoSection>
-
-      <div className="text-center py-4 opacity-10">
-        <p className="text-[9px] font-black tracking-[0.5em] uppercase">Dr Speed Nord Premium</p>
+      <div className="text-center mt-12 opacity-10">
+        <p className="text-[9px] font-black tracking-[0.5em] uppercase">Dr Speed Nord Ecosystem</p>
       </div>
     </div>
   );
