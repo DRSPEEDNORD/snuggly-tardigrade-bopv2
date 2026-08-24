@@ -8,7 +8,8 @@ import {
   ArrowRight,
   Download,
   ShieldCheck,
-  ShoppingBag
+  ShoppingBag,
+  ChevronRight
 } from 'lucide-react';
 import BackgroundEffects from '@/components/BackgroundEffects';
 import { motion } from 'framer-motion';
@@ -18,36 +19,34 @@ const StepCard = ({
   title, 
   description, 
   icon: Icon, 
-  colorClass,
   delay 
 }: { 
   number: string, 
   title: string, 
   description: string, 
   icon: any,
-  colorClass: string,
   delay: number
 }) => (
   <motion.div 
-    initial={{ opacity: 0, x: -20 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.5, delay }}
-    className="relative overflow-hidden rounded-[2rem] bg-black/40 border border-white/5 hover:border-white/10 transition-all duration-500 p-6 group"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay }}
+    className="relative group overflow-hidden rounded-[2.5rem] bg-white/[0.02] border border-emerald-500/10 backdrop-blur-2xl p-8 transition-all duration-500 hover:border-emerald-500/30"
   >
-    <div className={`absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500`}>
-      <Icon size={120} />
-    </div>
-    
-    <div className="flex items-start gap-4 relative z-10">
-      <div className={`w-12 h-12 rounded-xl ${colorClass} flex items-center justify-center shrink-0 shadow-lg`}>
-        <Icon size={24} className="text-white" />
-      </div>
-      <div className="space-y-1">
-        <div className="flex items-center gap-2">
-          <span className="text-[9px] font-black text-emerald-500/50 tracking-widest">{number}</span>
-          <h3 className="text-sm font-black uppercase italic tracking-tight text-white">{title}</h3>
+    <div className="flex flex-col gap-6 relative z-10">
+      <div className="flex justify-between items-start">
+        <div className="w-14 h-14 rounded-2xl bg-emerald-500/5 flex items-center justify-center text-emerald-400 border border-emerald-500/10 group-hover:border-emerald-500/30 transition-all">
+          <Icon size={28} strokeWidth={1.5} />
         </div>
-        <p className="text-[11px] text-white/40 leading-relaxed font-bold uppercase tracking-wide">
+        <span className="text-[10px] font-black text-emerald-500/40 tracking-[0.3em] uppercase">{number}</span>
+      </div>
+      
+      <div className="space-y-2">
+        <h3 className="text-xl font-black italic uppercase tracking-tight text-white flex items-center gap-2">
+          {title}
+          <ChevronRight size={18} className="text-emerald-500/50 group-hover:translate-x-1 transition-transform" />
+        </h3>
+        <p className="text-[11px] text-white/30 leading-relaxed font-bold uppercase tracking-wider">
           {description}
         </p>
       </div>
@@ -58,100 +57,89 @@ const StepCard = ({
 const Infos = () => {
   return (
     <div className="min-h-screen flex flex-col items-center pb-40 relative bg-[#010402] overflow-x-hidden">
-      <BackgroundEffects />
+      {/* Background avec Halo et Grille Subtile */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98105_1px,transparent_1px),linear-gradient(to_bottom,#10b98105_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,#064e3b44_0%,#010402_70%)]" />
+        <div className="scanline opacity-10" />
+      </div>
       
-      <div className="w-full max-w-md px-6 pt-16 z-10">
-        {/* Header Section */}
+      <div className="w-full max-w-md px-6 pt-20 z-10">
+        {/* Header Section - Style "RESTEZ INFORMÉ" */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex flex-col mb-12"
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center text-center mb-16"
         >
-          <div className="flex items-center gap-3 mb-3">
-            <div className="h-[1px] w-8 bg-emerald-500"></div>
-            <span className="text-[9px] font-black text-emerald-500 tracking-[0.3em] uppercase">Innovation Dr. Speed</span>
+          <div className="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(16,185,129,0.1)]">
+            <Zap size={32} className="text-emerald-400 fill-emerald-400/20" />
           </div>
-          <h1 className="text-4xl font-black italic tracking-tighter uppercase leading-none text-white">
-            ÉCOSYSTÈME <br />
-            <span className="text-emerald-400 glow-emerald">DR SPEED NORD</span>
+          
+          <h1 className="text-5xl font-black italic tracking-tighter uppercase leading-[0.85] text-white drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
+            GUIDE <br />
+            <span className="text-emerald-400">SYSTÈME</span>
           </h1>
-          <p className="text-[10px] text-white/20 font-black mt-4 uppercase tracking-[0.2em]">
-            GUIDE D'UTILISATION DES SERVICES
-          </p>
+          
+          <div className="mt-6 space-y-1">
+            <p className="text-[10px] text-emerald-500/60 font-black uppercase tracking-[0.3em]">
+              Optimisation & Performance
+            </p>
+            <p className="text-[9px] text-white/20 font-bold uppercase tracking-[0.1em]">
+              Suivez les étapes pour une expérience totale
+            </p>
+          </div>
         </motion.div>
 
         {/* Steps Container */}
-        <div className="space-y-4">
+        <div className="space-y-6">
           <StepCard 
-            number="ÉTAPE 01"
-            title="Le Portail (Ici)"
-            description="Cette application est votre accès sécurisé. Elle sert de pont pour installer la plateforme principale."
-            icon={Zap}
-            colorClass="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+            number="STEP 01"
+            title="Installation PWA"
+            description="Ajoutez l'application à votre écran d'accueil pour un accès instantané et sécurisé."
+            icon={Download}
             delay={0.1}
           />
 
-          <div className="flex justify-center py-1">
-            <ArrowRight size={16} className="text-white/10 animate-pulse" />
-          </div>
-
           <StepCard 
-            number="ÉTAPE 02"
-            title="Installation PWA"
-            description="Cliquez sur 'Installer' à l'accueil. Ajoutez-la à votre écran d'accueil pour un accès optimisé."
-            icon={Download}
-            colorClass="bg-blue-500/10 text-blue-400 border border-blue-500/20"
+            number="STEP 02"
+            title="Alertes Push"
+            description="Activez les notifications pour ne manquer aucun arrivage ou exclusivité."
+            icon={Bell}
             delay={0.2}
           />
 
-          <div className="flex justify-center py-1">
-            <ArrowRight size={16} className="text-white/10 animate-pulse" />
-          </div>
-
           <StepCard 
-            number="ÉTAPE 03"
-            title="Notifications"
-            description="Activez les alertes sur la PWA pour le suivi de vos commandes et les nouveaux stocks."
-            icon={Bell}
-            colorClass="bg-purple-500/10 text-purple-400 border border-purple-500/20"
-            delay={0.3}
-          />
-
-          <div className="flex justify-center py-1">
-            <ArrowRight size={16} className="text-white/10 animate-pulse" />
-          </div>
-
-          <StepCard 
-            number="ÉTAPE 04"
-            title="Menu & Produits"
-            description="Explorez tout notre catalogue et passez vos commandes en toute simplicité."
+            number="STEP 03"
+            title="Navigation"
+            description="Explorez le catalogue complet et profitez de la rapidité Dr Speed Nord."
             icon={ShoppingBag}
-            colorClass="bg-orange-500/10 text-orange-400 border border-orange-500/20"
-            delay={0.4}
+            delay={0.3}
           />
         </div>
 
-        {/* Security Note */}
+        {/* Bouton Action Style "MENU OFFICIEL" */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="mt-12 p-6 rounded-[2.5rem] bg-gradient-to-br from-emerald-500/5 to-transparent border border-emerald-500/10 relative overflow-hidden"
+          transition={{ delay: 0.5 }}
+          className="mt-12"
         >
-          <div className="absolute top-0 right-0 p-4 opacity-10">
-            <ShieldCheck size={40} className="text-emerald-400" />
-          </div>
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
-            <span className="text-[10px] font-black uppercase tracking-widest text-emerald-400">Confidentialité Totale</span>
-          </div>
-          <p className="text-[10px] text-white/40 leading-relaxed font-bold uppercase tracking-wider">
-            L'utilisation de la PWA garantit un anonymat complet et une sécurité renforcée hors des stores classiques.
-          </p>
+          <button className="w-full py-6 rounded-[2rem] bg-gradient-to-b from-emerald-400 to-emerald-600 text-black font-black italic uppercase tracking-tighter text-xl shadow-[0_15px_30px_-10px_rgba(16,185,129,0.5)] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+            RETOUR ACCUEIL <ArrowRight size={22} />
+          </button>
         </motion.div>
 
-        <div className="text-center mt-16 opacity-10">
-          <p className="text-[8px] font-black tracking-[0.6em] uppercase text-white">Dr Speed Nord Ecosystem</p>
+        {/* Footer Note */}
+        <div className="mt-20 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-[1px] w-8 bg-emerald-500/20"></div>
+            <ShieldCheck size={14} className="text-emerald-500/40" />
+            <div className="h-[1px] w-8 bg-emerald-500/20"></div>
+          </div>
+          <p className="text-[8px] font-black tracking-[0.5em] uppercase text-white/10">
+            DR SPEED NORD ECOSYSTEM v2.0
+          </p>
         </div>
       </div>
     </div>
