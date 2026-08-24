@@ -7,36 +7,36 @@ import ScrambleText from './ScrambleText';
 const Header = () => {
   return (
     <header className="w-full pt-16 pb-10 px-6 flex flex-col items-center text-center relative">
-      {/* Logo avec double anneau et animation heartbeat */}
+      {/* Logo avec double anneau et animation heartbeat douce */}
       <div className="relative mb-10">
         <motion.div 
           animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -inset-3 border border-emerald-500/20 rounded-full border-dashed"
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute -inset-3 border border-emerald-500/10 rounded-full border-dashed"
         />
         <motion.div 
           animate={{ rotate: -360 }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="absolute -inset-6 border border-white/5 rounded-full"
         />
         
         <motion.div 
           animate={{ 
-            scale: [1, 1.05, 1, 1.08, 1],
+            scale: [1, 1.03, 1],
+            opacity: [0.8, 1, 0.8]
           }}
           transition={{ 
-            duration: 2.5, 
+            duration: 4, 
             repeat: Infinity, 
-            ease: "easeInOut",
-            times: [0, 0.1, 0.2, 0.4, 1]
+            ease: "easeInOut"
           }}
-          className="relative w-32 h-32 rounded-full p-[2px] bg-gradient-to-b from-emerald-500 via-emerald-500/20 to-transparent shadow-[0_0_40px_rgba(16,185,129,0.15)]"
+          className="relative w-32 h-32 rounded-full p-[2px] bg-gradient-to-b from-emerald-500/50 via-emerald-500/10 to-transparent shadow-[0_0_50px_rgba(16,185,129,0.1)]"
         >
           <div className="w-full h-full rounded-full overflow-hidden bg-[#010402] flex items-center justify-center border border-white/10">
             <img 
               src="/logo.jpg" 
               alt="Dr Speed Nord" 
-              className="w-full h-full object-cover opacity-80 hover:scale-110 transition-transform duration-700"
+              className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-1000"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
                 const parent = e.currentTarget.parentElement;
