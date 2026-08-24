@@ -53,10 +53,10 @@ const Infos = () => {
       <div className="flex flex-col mb-10">
         <div className="flex items-center gap-3 mb-2">
           <div className="h-[2px] w-8 bg-emerald-500"></div>
-          <span className="text-[10px] font-black text-emerald-500 tracking-[0.3em] uppercase">Guide Officiel</span>
+          <span className="text-[10px] font-black text-emerald-500 tracking-[0.3em] uppercase">Innovation Dr. Speed</span>
         </div>
         <h1 className="text-3xl font-black italic tracking-tighter uppercase leading-none">
-          VOTRE <span className="text-emerald-400">ÉCOSYSTÈME</span>
+          ÉCOSYSTÈME <span className="text-emerald-400">DR SPEED NORD</span>
         </h1>
         <p className="text-[11px] text-white/30 font-bold mt-2 uppercase tracking-wider">
           Comment utiliser nos services
