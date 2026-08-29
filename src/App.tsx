@@ -8,6 +8,7 @@ import { RefreshCw } from "lucide-react";
 import Index from "./pages/Index";
 import Infos from "./pages/Infos";
 import SnapGuide from "./pages/SnapGuide";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import BottomNav from "./components/BottomNav";
 
@@ -17,19 +18,7 @@ const App = () => {
   const [showRefresh, setShowRefresh] = useState(false);
 
   useEffect(() => {
-    // Si on détecte que l'app est ouverte depuis plus de 2 secondes sans interaction,
-    // on propose un bouton de rafraîchissement manuel discret
     const timer = setTimeout(() => setShowRefresh(true), 3000);
-    
-    // Tentative de nettoyage du cache via Service Worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(registrations => {
-        for (let registration of registrations) {
-          registration.unregister();
-        }
-      });
-    }
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -50,7 +39,6 @@ const App = () => {
               <button 
                 onClick={forceUpdate}
                 className="fixed top-4 right-4 z-[100] p-2 bg-white/5 border border-white/10 rounded-full text-white/20 hover:text-emerald-400 transition-colors"
-                title="Forcer la mise à jour"
               >
                 <RefreshCw size={14} />
               </button>
@@ -59,6 +47,7 @@ const App = () => {
               <Route path="/" element={<Index />} />
               <Route path="/infos" element={<Infos />} />
               <Route path="/snap" element={<SnapGuide />} />
+              <Route path="/admin-secret-portal" element={<Admin />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <BottomNav />
