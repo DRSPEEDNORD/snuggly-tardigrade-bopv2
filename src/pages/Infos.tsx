@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Smartphone, 
   Bell, 
@@ -8,10 +8,13 @@ import {
   ArrowRight,
   Download,
   ShieldCheck,
-  ShoppingBag
+  ShoppingBag,
+  PlayCircle,
+  X
 } from 'lucide-react';
 import BackgroundEffects from '@/components/BackgroundEffects';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const StepCard = ({ 
   number, 
@@ -19,14 +22,16 @@ const StepCard = ({
   description, 
   icon: Icon, 
   colorClass,
-  delay 
+  delay,
+  children
 }: { 
   number: string, 
   title: string, 
   description: string, 
   icon: any,
   colorClass: string,
-  delay: number
+  delay: number,
+  children?: React.ReactNode
 }) => (
   <motion.div 
     initial={{ opacity: 0, x: -20 }}
@@ -42,14 +47,17 @@ const StepCard = ({
       <div className={`w-12 h-12 rounded-xl ${colorClass} flex items-center justify-center shrink-0 shadow-lg`}>
         <Icon size={24} className="text-white" />
       </div>
-      <div className="space-y-1">
-        <div className="flex items-center gap-2">
-          <span className="text-[9px] font-black text-emerald-500/50 tracking-widest">{number}</span>
-          <h3 className="text-sm font-black uppercase italic tracking-tight text-white">{title}</h3>
+      <div className="space-y-3 flex-1">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <span className="text-[9px] font-black text-emerald-500/50 tracking-widest">{number}</span>
+            <h3 className="text-sm font-black uppercase italic tracking-tight text-white">{title}</h3>
+          </div>
+          <p className="text-[11px] text-white/40 leading-relaxed font-bold uppercase tracking-wide">
+            {description}
+          </p>
         </div>
-        <p className="text-[11px] text-white/40 leading-relaxed font-bold uppercase tracking-wide">
-          {description}
-        </p>
+        {children}
       </div>
     </div>
   </motion.div>
@@ -102,7 +110,35 @@ const Infos = () => {
             icon={Download}
             colorClass="bg-blue-500/10 text-blue-400 border border-blue-500/20"
             delay={0.2}
-          />
+          >
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group/btn">
+                  <PlayCircle size={16} className="text-blue-400 group-hover/btn:scale-110 transition-transform" />
+                  <span className="text-[9px] font-black uppercase tracking-widest text-white">Voir le tuto vidéo</span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="bg-[#010402] border-white/10 text-white max-w-[90vw] rounded-[2rem]">
+                <DialogHeader>
+                  <DialogTitle className="text-sm font-black uppercase italic tracking-widest text-blue-400">Tutoriel d'installation</DialogTitle>
+                </DialogHeader>
+                <div className="aspect-[9/16] w-full bg-black rounded-2xl overflow-hidden border border-white/5 relative">
+                  {/* Remplacez l'URL ci-dessous par votre lien vidéo réel */}
+                  <div className="absolute inset-0 flex items-center justify-center text-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-center p-8">
+                    Vidéo en cours de chargement...<br/>(Insérez votre lien ici)
+                  </div>
+                  <iframe 
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/votre_id_video" 
+                    title="Tuto Installation"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </StepCard>
 
           <div className="flex justify-center py-1">
             <ArrowRight size={16} className="text-white/10 animate-pulse" />
