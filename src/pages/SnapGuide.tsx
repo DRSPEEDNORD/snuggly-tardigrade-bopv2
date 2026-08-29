@@ -76,7 +76,7 @@ const SnapGuide = () => {
               </div>
             </motion.div>
           ) : (
-            // Instructions Android (Chrome)
+            // Instructions Android (Navigateur)
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -91,15 +91,21 @@ const SnapGuide = () => {
                 <div className="flex flex-col items-center gap-2">
                   <span className="text-[10px] font-black text-blue-500/50 tracking-widest uppercase">Étape 01</span>
                   <h3 className="text-lg font-black text-white uppercase italic">Appuyez sur les 3 points</h3>
-                  <p className="text-[11px] text-white/40 font-bold uppercase">Situés en haut à droite</p>
+                  <p className="text-[11px] text-white/40 font-bold uppercase">Situés en haut à droite de Snapchat</p>
+                  <div className="mt-2 p-2 bg-white/5 rounded-lg">
+                    <MoreHorizontal size={24} className="text-white/60" />
+                  </div>
                 </div>
 
                 <div className="w-full h-[1px] bg-white/5"></div>
 
                 <div className="flex flex-col items-center gap-2">
                   <span className="text-[10px] font-black text-blue-500/50 tracking-widest uppercase">Étape 02</span>
-                  <h3 className="text-lg font-black text-white uppercase italic">Ouvrir dans Chrome</h3>
-                  <p className="text-[11px] text-white/40 font-bold uppercase">Ou "Ouvrir dans le navigateur"</p>
+                  <h3 className="text-lg font-black text-white uppercase italic">Ouvrir dans le navigateur</h3>
+                  <p className="text-[11px] text-white/40 font-bold uppercase">Sélectionnez l'option pour quitter Snapchat</p>
+                  <div className="mt-2 p-2 bg-blue-500/20 rounded-lg border border-blue-500/30">
+                    <Share size={24} className="text-blue-400" />
+                  </div>
                 </div>
               </div>
             </motion.div>
