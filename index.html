@@ -3,22 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Directives de cache pour les navigateurs -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     
     <script>
-      // Script de Cache-Busting pour Telegram
+      // Script de rafraîchissement automatique intelligent
       (function() {
+        const version = "1.0.2"; // Changez ce numéro pour forcer une mise à jour globale
+        const storedVersion = localStorage.getItem('dsn_app_version');
         const url = new URL(window.location.href);
-        const now = Date.now();
-        const lastRefresh = localStorage.getItem('dsn_last_refresh');
         
-        // Si la page n'a pas été rafraîchie depuis plus de 30 secondes
-        // ou si le paramètre 'v' est absent, on force le reload
-        if (!url.searchParams.has('v') || !lastRefresh || (now - lastRefresh > 30000)) {
-          url.searchParams.set('v', now);
-          localStorage.setItem('dsn_last_refresh', now);
+        // Si la version stockée est différente ou absente, on vide le cache et on reload
+        if (storedVersion !== version) {
+          localStorage.setItem('dsn_app_version', version);
+          
+          // Ajoute un paramètre unique à l'URL pour bypasser le cache serveur/proxy
+          url.searchParams.set('update', Date.now());
+          
+          // Nettoyage des anciens Service Workers si présents
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(regs => {
+              for(let reg of regs) reg.unregister();
+            });
+          }
+          
           window.location.replace(url.toString());
         }
       })();
