@@ -85,7 +85,7 @@ const Infos = () => {
           <StepCard 
             number="ÉTAPE 01"
             title="Le Portail (Ici)"
-            description="Cette application est votre accès sécurisé. Elle sert de pont pour installer la plateforme principale."
+            description="Cette application est votre accès sécurisé. Elle sert de pont pour installer l'app principale."
             icon={Zap}
             colorClass="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
             delay={0.1}
@@ -97,7 +97,7 @@ const Infos = () => {
 
           <StepCard 
             number="ÉTAPE 02"
-            title="Installation PWA"
+            title="Installation de l'app"
             description="Cliquez sur 'Installer' à l'accueil. Ajoutez-la à votre écran d'accueil pour un accès optimisé."
             icon={Download}
             colorClass="bg-blue-500/10 text-blue-400 border border-blue-500/20"
@@ -111,7 +111,7 @@ const Infos = () => {
           <StepCard 
             number="ÉTAPE 03"
             title="Notifications"
-            description="Activez les alertes sur la PWA pour le suivi de vos commandes et les nouveaux stocks."
+            description="Activer les alertes sur l'app pour le suivi de vos commandes et les nouveaux stocks."
             icon={Bell}
             colorClass="bg-purple-500/10 text-purple-400 border border-purple-500/20"
             delay={0.3}
@@ -124,7 +124,7 @@ const Infos = () => {
           <StepCard 
             number="ÉTAPE 04"
             title="Menu & Produits"
-            description="Explorez tout notre catalogue et passez vos commandes en toute simplicité."
+            description="Explorez tout notre catalogue et passez vos commandes en toute simplicité sur l'app."
             icon={ShoppingBag}
             colorClass="bg-orange-500/10 text-orange-400 border border-orange-500/20"
             delay={0.4}
@@ -146,7 +146,7 @@ const Infos = () => {
             <span className="text-[10px] font-black uppercase tracking-widest text-emerald-400">Confidentialité Totale</span>
           </div>
           <p className="text-[10px] text-white/40 leading-relaxed font-bold uppercase tracking-wider">
-            L'utilisation de la PWA garantit un anonymat complet et une sécurité renforcée hors des stores classiques.
+            L'utilisation de l'app garantit un anonymat complet et une sécurité renforcée hors des stores classiques.
           </p>
         </motion.div>
 
