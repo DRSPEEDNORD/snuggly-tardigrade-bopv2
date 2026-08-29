@@ -61,56 +61,70 @@ const ActionCards = () => {
         </div>
       </motion.a>
 
-      {/* Carte Tutoriel Vidéo (Remplaçant Telegram) */}
-      <Dialog>
-        <DialogTrigger asChild>
-          <motion.button 
-            variants={item}
-            className="relative group overflow-hidden rounded-[2rem] bg-black/40 border border-white/5 hover:border-blue-500/30 transition-all duration-500 p-6 text-left w-full"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            
-            <div className="relative z-10 flex items-center gap-5">
-              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/5 text-blue-400 border border-blue-500/10 group-hover:border-blue-500/30 transition-all shrink-0">
-                <PlayCircle size={24} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
-              </div>
+      {/* Carte Tutoriel Vidéo */}
+      <div className="space-y-3">
+        <Dialog>
+          <DialogTrigger asChild>
+            <motion.button 
+              variants={item}
+              className="relative group overflow-hidden rounded-[2rem] bg-black/40 border border-white/5 hover:border-blue-500/30 transition-all duration-500 p-6 text-left w-full"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
-              <div className="flex-1 space-y-1">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-black text-white tracking-tight uppercase italic leading-none">
-                    TUTO INSTALLATION
-                  </h3>
-                  <ArrowUpRight size={18} className="text-white/10 group-hover:text-blue-400 transition-colors" />
+              <div className="relative z-10 flex items-center gap-5">
+                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/5 text-blue-400 border border-blue-500/10 group-hover:border-blue-500/30 transition-all shrink-0">
+                  <PlayCircle size={24} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-blue-400 animate-pulse"></div>
-                  <span className="text-[9px] font-black text-blue-400/70 uppercase tracking-widest">GUIDE VIDÉO RAPIDE</span>
+                
+                <div className="flex-1 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-black text-white tracking-tight uppercase italic leading-none">
+                      TUTO INSTALLATION
+                    </h3>
+                    <ArrowUpRight size={18} className="text-white/10 group-hover:text-blue-400 transition-colors" />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1 h-1 rounded-full bg-blue-400 animate-pulse"></div>
+                    <span className="text-[9px] font-black text-blue-400/70 uppercase tracking-widest">GUIDE VIDÉO RAPIDE</span>
+                  </div>
                 </div>
               </div>
+            </motion.button>
+          </DialogTrigger>
+          <DialogContent className="bg-[#010402] border-white/10 text-white max-w-[90vw] rounded-[2.5rem] p-0 overflow-hidden">
+            <DialogHeader className="p-6 pb-2">
+              <DialogTitle className="text-sm font-black uppercase italic tracking-widest text-blue-400 flex items-center gap-2">
+                <PlayCircle size={16} /> Tutoriel d'installation
+              </DialogTitle>
+            </DialogHeader>
+            <div className="aspect-[9/16] w-full bg-black relative">
+              <iframe 
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/votre_id_video" 
+                title="Tuto Installation"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
-          </motion.button>
-        </DialogTrigger>
-        <DialogContent className="bg-[#010402] border-white/10 text-white max-w-[90vw] rounded-[2.5rem] p-0 overflow-hidden">
-          <DialogHeader className="p-6 pb-2">
-            <DialogTitle className="text-sm font-black uppercase italic tracking-widest text-blue-400 flex items-center gap-2">
-              <PlayCircle size={16} /> Tutoriel d'installation
-            </DialogTitle>
-          </DialogHeader>
-          <div className="aspect-[9/16] w-full bg-black relative">
-            <iframe 
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/votre_id_video" 
-              title="Tuto Installation"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <div className="p-4 bg-white/5 text-center">
+              <p className="text-[8px] font-black text-white/20 uppercase tracking-[0.3em]">DR SPEED NORD PROTOCOL</p>
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {/* Badge de test de mise à jour */}
+        <motion.div 
+          variants={item}
+          className="flex justify-center"
+        >
+          <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
+            <span className="text-[7px] font-black text-white/20 uppercase tracking-[0.2em]">
+              TEST MAJ V1.0.2 • SYSTÈME ACTIF
+            </span>
           </div>
-          <div className="p-4 bg-white/5 text-center">
-            <p className="text-[8px] font-black text-white/20 uppercase tracking-[0.3em]">DR SPEED NORD PROTOCOL</p>
-          </div>
-        </DialogContent>
-      </Dialog>
+        </motion.div>
+      </div>
     </motion.div>
   );
 };
