@@ -1,11 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    
+    <script>
+      // Script de Cache-Busting pour Telegram
+      (function() {
+        const url = new URL(window.location.href);
+        const now = Date.now();
+        const lastRefresh = localStorage.getItem('dsn_last_refresh');
+        
+        // Si la page n'a pas été rafraîchie depuis plus de 30 secondes
+        // ou si le paramètre 'v' est absent, on force le reload
+        if (!url.searchParams.has('v') || !lastRefresh || (now - lastRefresh > 30000)) {
+          url.searchParams.set('v', now);
+          localStorage.setItem('dsn_last_refresh', now);
+          window.location.replace(url.toString());
+        }
+      })();
+    </script>
+
     <title>DRSPEEDNORD</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpeg" />
   </head>
