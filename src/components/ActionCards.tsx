@@ -1,8 +1,9 @@
 "use client";
 
 import React from 'react';
-import { Send, Download, ArrowUpRight, Zap, Users } from 'lucide-react';
+import { Download, ArrowUpRight, Zap, PlayCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const ActionCards = () => {
   const container = {
@@ -60,35 +61,56 @@ const ActionCards = () => {
         </div>
       </motion.a>
 
-      {/* Carte Canal Telegram */}
-      <motion.a 
-        variants={item}
-        href="https://t.me/votre_canal" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="relative group overflow-hidden rounded-[2rem] bg-black/40 border border-white/5 hover:border-cyan-500/30 transition-all duration-500 p-6"
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-        
-        <div className="relative z-10 flex items-center gap-5">
-          <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-cyan-500/5 text-cyan-400 border border-cyan-500/10 group-hover:border-cyan-500/30 transition-all shrink-0">
-            <Send size={24} strokeWidth={1.5} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </div>
-          
-          <div className="flex-1 space-y-1">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-black text-white tracking-tight uppercase italic leading-none">
-                CANAL TELEGRAM
-              </h3>
-              <ArrowUpRight size={18} className="text-white/10 group-hover:text-cyan-400 transition-colors" />
+      {/* Carte Tutoriel Vidéo (Remplaçant Telegram) */}
+      <Dialog>
+        <DialogTrigger asChild>
+          <motion.button 
+            variants={item}
+            className="relative group overflow-hidden rounded-[2rem] bg-black/40 border border-white/5 hover:border-blue-500/30 transition-all duration-500 p-6 text-left w-full"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            
+            <div className="relative z-10 flex items-center gap-5">
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/5 text-blue-400 border border-blue-500/10 group-hover:border-blue-500/30 transition-all shrink-0">
+                <PlayCircle size={24} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
+              </div>
+              
+              <div className="flex-1 space-y-1">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-black text-white tracking-tight uppercase italic leading-none">
+                    TUTO INSTALLATION
+                  </h3>
+                  <ArrowUpRight size={18} className="text-white/10 group-hover:text-blue-400 transition-colors" />
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 rounded-full bg-blue-400 animate-pulse"></div>
+                  <span className="text-[9px] font-black text-blue-400/70 uppercase tracking-widest">GUIDE VIDÉO RAPIDE</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Users size={12} className="text-cyan-400/50" />
-              <span className="text-[9px] font-black text-cyan-400/70 uppercase tracking-widest">+5,000 MEMBRES</span>
-            </div>
+          </motion.button>
+        </DialogTrigger>
+        <DialogContent className="bg-[#010402] border-white/10 text-white max-w-[90vw] rounded-[2.5rem] p-0 overflow-hidden">
+          <DialogHeader className="p-6 pb-2">
+            <DialogTitle className="text-sm font-black uppercase italic tracking-widest text-blue-400 flex items-center gap-2">
+              <PlayCircle size={16} /> Tutoriel d'installation
+            </DialogTitle>
+          </DialogHeader>
+          <div className="aspect-[9/16] w-full bg-black relative">
+            <iframe 
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/votre_id_video" 
+              title="Tuto Installation"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
-        </div>
-      </motion.a>
+          <div className="p-4 bg-white/5 text-center">
+            <p className="text-[8px] font-black text-white/20 uppercase tracking-[0.3em]">DR SPEED NORD PROTOCOL</p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </motion.div>
   );
 };
