@@ -1,11 +1,14 @@
 "use client";
 
-import React from 'react';
-import { Download, ArrowUpRight, Zap, PlayCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Download, ArrowUpRight, Zap, PlayCircle, Smartphone, Apple } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { cn } from '@/lib/utils';
 
 const ActionCards = () => {
+  const [platform, setPlatform] = useState<'ios' | 'android'>('ios');
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -78,34 +81,60 @@ const ActionCards = () => {
               <div className="flex-1 space-y-1">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-black text-white tracking-tight uppercase italic leading-none">
-                    TUTO INSTALLATION
+                    TUTOS VIDÉOS
                   </h3>
                   <ArrowUpRight size={18} className="text-white/10 group-hover:text-blue-400 transition-colors" />
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-blue-400 animate-pulse"></div>
-                  <span className="text-[9px] font-black text-blue-400/70 uppercase tracking-widest">GUIDE VIDÉO RAPIDE</span>
+                  <span className="text-[9px] font-black text-blue-400/70 uppercase tracking-widest">GUIDES IOS & ANDROID</span>
                 </div>
               </div>
             </div>
           </motion.button>
         </DialogTrigger>
         <DialogContent className="bg-[#010402] border-white/10 text-white max-w-[90vw] rounded-[2.5rem] p-0 overflow-hidden">
-          <DialogHeader className="p-6 pb-2">
+          <DialogHeader className="p-6 pb-4">
             <DialogTitle className="text-sm font-black uppercase italic tracking-widest text-blue-400 flex items-center gap-2">
-              <PlayCircle size={16} /> Tutoriel d'installation
+              <PlayCircle size={16} /> Tutoriels d'installation
             </DialogTitle>
+            
+            <div className="flex gap-2 mt-4">
+              <button 
+                onClick={() => setPlatform('ios')}
+                className={cn(
+                  "flex-1 flex items-center justify-center gap-2 py-2 rounded-xl border transition-all text-[10px] font-black uppercase tracking-widest",
+                  platform === 'ios' 
+                    ? "bg-white/10 border-white/20 text-white" 
+                    : "bg-transparent border-white/5 text-white/30 hover:text-white/50"
+                )}
+              >
+                <Apple size={14} /> iOS
+              </button>
+              <button 
+                onClick={() => setPlatform('android')}
+                className={cn(
+                  "flex-1 flex items-center justify-center gap-2 py-2 rounded-xl border transition-all text-[10px] font-black uppercase tracking-widest",
+                  platform === 'android' 
+                    ? "bg-white/10 border-white/20 text-white" 
+                    : "bg-transparent border-white/5 text-white/30 hover:text-white/50"
+                )}
+              >
+                <Smartphone size={14} /> Android
+              </button>
+            </div>
           </DialogHeader>
+          
           <div className="aspect-[9/16] w-full bg-black relative">
-            <iframe 
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/votre_id_video" 
-              title="Tuto Installation"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <video 
+              key={platform}
+              className="w-full h-full object-cover"
+              controls
+              playsInline
+              src={platform === 'ios' ? "/assets/tuto-ios.mp4" : "/assets/tuto-android.mp4"}
+            />
           </div>
+          
           <div className="p-4 bg-white/5 text-center">
             <p className="text-[8px] font-black text-white/20 uppercase tracking-[0.3em]">DR SPEED NORD PROTOCOL</p>
           </div>

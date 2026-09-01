@@ -10,11 +10,12 @@ import {
   ShieldCheck,
   ShoppingBag,
   PlayCircle,
-  X
+  Apple
 } from 'lucide-react';
 import BackgroundEffects from '@/components/BackgroundEffects';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { cn } from '@/lib/utils';
 
 const StepCard = ({ 
   number, 
@@ -64,6 +65,8 @@ const StepCard = ({
 );
 
 const Infos = () => {
+  const [platform, setPlatform] = useState<'ios' | 'android'>('ios');
+
   return (
     <div className="min-h-screen flex flex-col items-center pb-40 relative bg-[#010402] overflow-x-hidden">
       <BackgroundEffects />
@@ -115,26 +118,53 @@ const Infos = () => {
               <DialogTrigger asChild>
                 <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group/btn">
                   <PlayCircle size={16} className="text-blue-400 group-hover/btn:scale-110 transition-transform" />
-                  <span className="text-[9px] font-black uppercase tracking-widest text-white">Voir le tuto vidéo</span>
+                  <span className="text-[9px] font-black uppercase tracking-widest text-white">Voir les tutos vidéos</span>
                 </button>
               </DialogTrigger>
-              <DialogContent className="bg-[#010402] border-white/10 text-white max-w-[90vw] rounded-[2rem]">
-                <DialogHeader>
-                  <DialogTitle className="text-sm font-black uppercase italic tracking-widest text-blue-400">Tutoriel d'installation</DialogTitle>
-                </DialogHeader>
-                <div className="aspect-[9/16] w-full bg-black rounded-2xl overflow-hidden border border-white/5 relative">
-                  {/* Remplacez l'URL ci-dessous par votre lien vidéo réel */}
-                  <div className="absolute inset-0 flex items-center justify-center text-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-center p-8">
-                    Vidéo en cours de chargement...<br/>(Insérez votre lien ici)
+              <DialogContent className="bg-[#010402] border-white/10 text-white max-w-[90vw] rounded-[2.5rem] p-0 overflow-hidden">
+                <DialogHeader className="p-6 pb-4">
+                  <DialogTitle className="text-sm font-black uppercase italic tracking-widest text-blue-400 flex items-center gap-2">
+                    <PlayCircle size={16} /> Tutoriels d'installation
+                  </DialogTitle>
+                  
+                  <div className="flex gap-2 mt-4">
+                    <button 
+                      onClick={() => setPlatform('ios')}
+                      className={cn(
+                        "flex-1 flex items-center justify-center gap-2 py-2 rounded-xl border transition-all text-[10px] font-black uppercase tracking-widest",
+                        platform === 'ios' 
+                          ? "bg-white/10 border-white/20 text-white" 
+                          : "bg-transparent border-white/5 text-white/30 hover:text-white/50"
+                      )}
+                    >
+                      <Apple size={14} /> iOS
+                    </button>
+                    <button 
+                      onClick={() => setPlatform('android')}
+                      className={cn(
+                        "flex-1 flex items-center justify-center gap-2 py-2 rounded-xl border transition-all text-[10px] font-black uppercase tracking-widest",
+                        platform === 'android' 
+                          ? "bg-white/10 border-white/20 text-white" 
+                          : "bg-transparent border-white/5 text-white/30 hover:text-white/50"
+                      )}
+                    >
+                      <Smartphone size={14} /> Android
+                    </button>
                   </div>
-                  <iframe 
-                    className="w-full h-full"
-                    src="https://www.youtube.com/embed/votre_id_video" 
-                    title="Tuto Installation"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                </DialogHeader>
+                
+                <div className="aspect-[9/16] w-full bg-black relative">
+                  <video 
+                    key={platform}
+                    className="w-full h-full object-cover"
+                    controls
+                    playsInline
+                    src={platform === 'ios' ? "/assets/tuto-ios.mp4" : "/assets/tuto-android.mp4"}
+                  />
+                </div>
+                
+                <div className="p-4 bg-white/5 text-center">
+                  <p className="text-[8px] font-black text-white/20 uppercase tracking-[0.3em]">DR SPEED NORD PROTOCOL</p>
                 </div>
               </DialogContent>
             </Dialog>
