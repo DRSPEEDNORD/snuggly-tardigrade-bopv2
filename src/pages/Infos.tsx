@@ -121,7 +121,7 @@ const Infos = () => {
                   <span className="text-[9px] font-black uppercase tracking-widest text-white">Voir les tutos vidéos</span>
                 </button>
               </DialogTrigger>
-              <DialogContent className="bg-[#010402] border-white/10 text-white max-w-[90vw] rounded-[2.5rem] p-0 overflow-hidden">
+              <DialogContent className="bg-[#010402] border-white/10 text-white max-w-[90vw] sm:max-w-[400px] rounded-[2.5rem] p-0 overflow-hidden">
                 <DialogHeader className="p-6 pb-4">
                   <DialogTitle className="text-sm font-black uppercase italic tracking-widest text-blue-400 flex items-center gap-2">
                     <PlayCircle size={16} /> Tutoriels d'installation
@@ -153,10 +153,10 @@ const Infos = () => {
                   </div>
                 </DialogHeader>
                 
-                <div className="aspect-[9/16] w-full bg-black relative">
+                <div className="w-full bg-black flex items-center justify-center overflow-hidden" style={{ height: '60vh' }}>
                   <video 
                     key={platform}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     controls
                     playsInline
                     src={platform === 'ios' ? "/assets/tuto-ios.mp4" : "/assets/tuto-android.mp4"}
