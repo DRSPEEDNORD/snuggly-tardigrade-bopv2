@@ -11,12 +11,12 @@ const Header = () => {
       <div className="relative mb-10">
         <motion.div 
           animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
           className="absolute -inset-3 border border-emerald-500/10 rounded-full border-dashed"
         />
         <motion.div 
           animate={{ rotate: -360 }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
           className="absolute -inset-6 border border-white/5 rounded-full"
         />
         
